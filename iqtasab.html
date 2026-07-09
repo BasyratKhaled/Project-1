@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اقتباسات و اقوال زریں | تحریک اسلامی</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles (Copied for standalone page functionality) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        body {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        h2 { 
+            color: #0A2B4C;
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        p {
+            font-size: 1.05rem;
+        }
+        
+        /* --- Styles for Iqtibas Accordion/Quote List --- */
+        .iqtibas-content {
+            padding-bottom: 50px;
+        }
+        
+        .iqtibas-section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid #0A2B4C; /* Deep Blue border for distinction */
+        }
+        .iqtibas-section h3 {
+            color: #0A2B4C;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            cursor: pointer; /* Suggests interactivity */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .iqtibas-section h3 i {
+            color: #FFD700;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+
+        /* Styling for the hidden content (Quotes list) */
+        .quote-list-container {
+            border-top: 1px dashed #eee;
+            padding-top: 15px;
+            /* In a real scenario, this would be toggled with JavaScript/CSS */
+            /* display: none; */ 
+        }
+
+        .quote-card {
+            background-color: #f0f4f7;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-right: 4px solid #FFD700; /* Gold quote marker */
+            position: relative;
+        }
+
+        .quote-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .quote-source {
+            display: block;
+            text-align: left; /* Align to the end in RTL */
+            font-size: 0.95rem;
+            color: #0A2B4C;
+            font-weight: 700;
+            margin-top: 10px;
+            padding-top: 5px;
+            border-top: 1px dotted #ccc;
+        }
+        .quote-source span {
+            color: #333;
+            font-weight: 400;
+        }
+   .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } 
+
+         .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Footer Base Styles */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl; /* Sets text direction to Right-to-Left */
+    text-align: right;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+/* Headings (Yellow Color) */
+.footer-column h3 {
+    color: #ffcc00;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Contact & Link Styles */
+.footer-column p, .footer-column ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffcc00;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    color: #ffcc00;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-column h3 {
+        display: block;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+    <div class="container">
+        <h2>اقتباسات و اقوال زریں</h2>
+          <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+               
+                <option value="books.html" > کتب</option> 
+                   <option value="iqtasab.html" selected>     اقتباسات   </option>
+               
+                <option value="baniqayadat.html#rasal-masail">      رسائل و مسائل  </option>
+                  
+                
+
+            </select>
+        </div>
+        
+        <p style="text-align: center; margin-bottom: 40px;">
+            جماعت اسلامی کے بانی سید ابوالاعلیٰ مودودیؒ اور دیگر فکری رہنماؤں کے منتخب اقوال اور کتب کے اہم اقتباسات کا مجموعہ۔
+        </p>
+        
+        <div class="iqtibas-content">
+            
+            <div class="iqtibas-section">
+                <h3>شاہ کلید از سید ابو الاعلیٰ مودودیؒ    <i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+     جاہلیت کے زمانے میں میں نے بہت کچھ پڑھا ہے۔ قدیم و جدید فلسفہ، سائنس، معاشیات، سیاسیات وغیرہ پر اچھی خاصی ایک لائبریری دماغ میں اتار چکا ہوں، مگر جب آنکھ کھول کر قرآن کو پڑھا تو بخدا یوں محسوس ہوا کہ جو کچھ پڑھا تھا سب ہیچ تھا- علم کی جڑ تو اب ہاتھ آئی ہے۔ <br> 
+     <br> کانٹ، ہیگل، نٹشے، مارکس اور دنیا کے تمام بڑے بڑے مفکرین اب مجھے بچے نظر آتے ہیں- بے چاروں پر ترس آتا ہے کہ ساری عمر جن گتھیوں کو سلجھاتے رہے اور جن مسائل پر بڑی بڑی کتابیں تصنیف کر ڈالیں، پھر بھی حل نہ کر سکے، ان کو اس کتاب نے ایک دو فقروں میں حل کرکے رکھ دیا- میری محسن بس یہی کتاب ہے- اس نے مجھے بدل کر رکھ دیا- حیوان سے انسان بنا دیا- تاریکیوں سے نکال کر روشنی میں لے آئی- ایسا چراغ میرے ہاتھ میں دے دیا کہ زندگی کے جس معاملہ کی طرف نظر ڈالتا ہوں حقیقت اس طرح برملا دکھائی دیتی ہے کہ گویا اس پر پردہ نہیں ہے- انگریزی میں ایسی کنجی کو شاہِ کلید (Master Key) کہتے ہیں جس سے ہر قفل کھل جائے- سو میرے لیے یہ قرآن مجید شاہِ کلید ہے- مسائلِ حیات کے جس قفل پر اسے لگاتا ہوں، کھل جاتا ہے- جس خدا نے یہ کتاب بخشی ہے، اس کا شکر ادا کرنے سے میری زبان عاجز ہے          
+               
+               
+               
+               
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="iqtibas-section">
+                <h3> اقامت دین، نفاذ شریعت اور اجرائے حدود اللہ کے لیے حکومت چاہنا از سید ابو الاعلیٰ مودودیؒ    <i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+                 
+                 اقامت دین، نفاذ شریعت اور اجرائے حدود اللہ کے لیے حکومت چاہنا اورا سکے حصول کی کوشش کرنا نہ صرف جائز بلکہ مطلوب و مندوب ہے اور وہ لوگ غلطی پر ہیں جو اسے دنیا پرستی یا دنیا طلبی سے تعبیر کرتے ہیں۔ (اسلامی ریاست)
+                 
+                 
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                  
+                    
+                </div>
+            </div>
+
+
+
+             <div class="iqtibas-section">
+                <h3>   مسلمان امامت کے منصب سے کیوں معزول ہوگئے؟ از سید ابو الاعلیٰ مودودیؒ   <i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+                 مسلمان صدیوں تک قلم اور تلوار کے ساتھ فرماں روائی کرتے کرتے آخرکار تھک گئے، ان کی روح جہاد سرد پڑ گئی، قوت اجتہاد شل ہوگئی، جس کتاب نے ان کو علم کی روشنی اور عمل کی طاقت بخشی تھی اس کو انہوں نے محض ایک متبرک یادگار بنا کر غلافوں میں لپیٹ دیا، جس ہادی اعظمﷺ کی سنت نے ان کی تہذیب کو ایک مکمل فکری و عملی نظام کی صورت بخشی تھی ، اس کی پیروی کو انہوں نے چھوڑ دیا، جس کی وجہ سے مسلمان امامت کے منصب سے معزول ہوگئے۔ (تنقیحات)
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                  
+                    
+                </div>
+            </div>
+
+
+             <div class="iqtibas-section">
+                <h3>لوگوں کو بشارت دو متنفر نہ کرو از سید ابو الاعلیٰ مودودیؒ   <i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+                 لوگ بڑا غضب کرتے ہیں کہ اسلام کے پروگرام کی ساری تفصیل چھوڑ کر کر اس کی سخت سزاؤں پر گفتگو شروع کر دیتے ہیں۔ اسلام پہلے عام لوگوں میں ایمان پیدا کرتا ہے ۔ پھر عوام کے اخلاق کو پاکیزہ بناتا ہے، پھر تمام تدابیر سے ایک ایسی مضبوط رائے عام تیار کرتا ہے جس میں بھلائیاں پھولیں پھلیں اور برائیاں پنپ نہ سکیں۔ پھر وہ ایسا معاشرتی، معاشی اور سیاسی نظام قائم کرتا ہے جس میں بدی کرنا مشکل اور نیکی کرنا آسان ہو جائے۔ وہ ان تمام دروازوں کو بند کرتا ہے جن سے فواحش اور جرائم نشوونما پاتے ہیں۔ اس کے بعد ڈنڈا وہ آخری چیز ہے جس سے ایک پاک معاشرے میں سر اٹھانے والی ناپاکی کا قلع قمع کیا جاتا ہے۔ اب اس سے بڑا ظالم اور کون ہو سکتا ہے جو ایسے برحق نظام کو بد نام کرنے کے لیے آخری چیز کو پہلی قرار دیتا ہے اور بیچ کی سب چیزوں کو نگل جاتا ہے ۔(تصریحات)
+
+
+
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                  
+                    
+                </div>
+            </div>
+
+
+             <div class="iqtibas-section">
+                <h3>انقلاب از سید ابو الاعلیٰ مودودیؒ      <i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+                 
+               انقلاب یا ارتقاء ہمیشہ قوت کے ہی اثر سے رونما ہوا ہے ۔ قوت ڈھل جانے کا نام نہیں ڈھال دینے کا نام ہے ۔مڑ جانے کو قوت نہیں موڑ دینے کو قوت کہتے ہیں۔ دنیا میں کبھی نا مردوں اور بزدلوں نے کوئی انقلاب پیدا نہیں کیا۔ جو لوگ اپنا کوئی اصول، کوئی مقصد حیات، کوئی نصب العین نہ رکھتے ہوں ،جو بلند مقصد کے لیے قربانی دینے کا حوصلہ نہ رکھتے ہوں، جو خطرات اور مشکلات سے مقابلے کی ہمت نہ رکھتے ہوں، جن کو دنیا میں محض آسائش اور سہولت ہی مطلوب ہو ،جو ہر سانچے میں ڈھل جانے اور ہر دباؤ سے دب جانے والے ہوں، ایسے لوگوں کا کوئی قابل ذکر کارنامہ انسانی تاریخ میں نہیں پایا جاتا ۔تاریخ بنانا صرف بہادروں کا کام ہے۔ انہی نے اپنے جہاد اور اپنی قربانیوں سے زندگی کے دریا کا رخ پھیرا ہے، دنیا کے خیالات بدلے ہیں۔ مناہج عمل میں انقلاب برپا کیا ہے۔ زمانے کے رنگ میں رنگ جا نے کے بجائے زمانے کو خود اپنے رنگ میں رنگ کر چھوڑا ہے۔
+                 
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                  
+                    
+                </div>
+            </div>
+
+
+             <div class="iqtibas-section">
+                <h3>    مقصد زندگی از سید ابو الاعلیٰ مودودیؒ<i class="fas fa-chevron-down"></i></h3>
+                <div class="quote-list-container">
+                    
+                    <div class="quote-card">
+                        <p class="quote-text">
+       میرے لیے تو یہ تحریک عین مقصد زندگی ہے ۔ میرا مرنا، میرا جینا اس کے لیے ہے ۔ کوئی اس پر چلنے کے لئے تیار ہو یہ نا ہو، بہرحال مجھے تو اسی راہ پر چلنا ہے اور اسی راہ پر جان دینی ہے۔کوئی آگے نہ بڑھے گا تو میں آگے بڑھوں گا،کوئی ساتھ نہ دے گا تو میں اکیلا چلوں گا۔ ساری دنیا متحد ہوکرمخالفت کرے گی تو مجھے تن تنہا اس سے لڑنے میں بھی باک نہیں۔          
+               
+                            
+                        </p>
+                        <span class="quote-source">مقرر: سید ابوالاعلیٰ مودودیؒ </span>
+                    </div>
+                    
+                  
+                    
+                </div>
+            </div>
+
+
+            
+                    
+                  
+                    
+           
+            
+        </div>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-column contact-info">
+            <h3>رابطہ کی تفصیلات</h3>
+            <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+            <p><i class="fas fa-phone-alt"></i> +92 42 35432194</p>
+            <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com</p>
+        </div>
+
+        <div class="footer-column quick-links">
+            <h3>فوری لنکس</h3>
+            <ul>
+                <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column social-media">
+            <h3>سوشل میڈیا</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+    </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+         
+        
+        <script>
+            // Simple JavaScript to toggle the visibility of the quote lists
+            document.querySelectorAll('.iqtibas-section h3').forEach(header => {
+                // By default, hide the quote list container
+                const container = header.nextElementSibling;
+                container.style.display = 'none';
+
+                header.addEventListener('click', () => {
+                    // Toggle visibility of the next element (quote-list-container)
+                    const isVisible = container.style.display === 'block';
+                    container.style.display = isVisible ? 'none' : 'block';
+                    
+                    // Toggle the arrow icon direction
+                    const icon = header.querySelector('i');
+                    icon.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+        </script>
+
+    </div>
+
+</body>
+</html>
