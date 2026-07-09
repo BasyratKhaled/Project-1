@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://127.0.0.1:5500/jamateislami/index.html -->
+<html lang="ur" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحریک اسلامی | نئے خواب، نیا سفر</title>
+    <link rel="stylesheet" href="./تحریک اسلامی _ نئے خواب، نیا سفر_files/style.css">
+    <link rel="stylesheet" href="./تحریک اسلامی _ نئے خواب، نیا سفر_files/all.min.css">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+       
+body {
+    direction: rtl; 
+    font-family: 'Noto Nastaliq Urdu', serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #F8F8F8;
+    color: #333;
+    line-height: 1.8;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-weight: 700;
+    color: #0A2B4C; 
+}
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; border-bottom: 2px solid #FFD700; padding-bottom: 10px; display: inline-block; margin-bottom: 30px; }
+p { font-size: 1.1rem; }
+
+/* Global Styling */
+.section {
+    padding: 60px 0;
+}
+.section:nth-child(even) {
+    background-color: #f0f4f7; /* Slightly darker background for separation */
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #0A2B4C; /* Deep Blue */
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+    color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Buttons --- */
+.btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.05rem;
+    border: 2px solid transparent;
+}
+.primary-btn {
+    background-color: #FFD700; /* Gold */
+    color: #0A2B4C; /* Deep Blue text */
+}
+.primary-btn:hover {
+    background-color: #e0b000; /* Darker Gold */
+}
+.secondary-btn {
+    background-color: transparent;
+    color: #0A2B4C; /* Deep Blue text */
+    border: 2px solid #0A2B4C;
+    margin-right: 15px;
+}
+.secondary-btn:hover {
+    background-color: #0A2B4C;
+    color: white;
+}
+.centered-btn {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0 auto;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(10, 43, 76, 0.85), rgba(10, 43, 76, 0.85)), url('hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+.hero h2 {
+    color: #FFD700; /* Gold text */
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- About Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card i {
+    font-size: 3rem;
+    color: #FFD700; /* Gold */
+    margin-bottom: 15px;
+}
+.card h4 {
+    color: #0A2B4C;
+    margin-top: 0;
+}
+
+/* --- Manifesto Section --- */
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+.manifesto-point {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+.manifesto-point i {
+    font-size: 2.5rem;
+    color: #0A2B4C; /* Deep Blue */
+    margin-bottom: 10px;
+}
+
+/* --- News Section --- */
+.news-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.news-item {
+    background-color: white;
+    padding: 20px;
+    border-right: 5px solid #FFD700; /* Gold border for emphasis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.news-item .date {
+    display: block;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+.news-item h4 {
+    margin: 0 0 10px 0;
+}
+.news-item a {
+    color: #0A2B4C;
+    text-decoration: none;
+    font-weight: 700;
+}
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* --- Call to Action (CTA) --- */
+.cta-section {
+    background-color: #0A2B4C; /* Deep Blue */
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+.cta-section h3 {
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+.cta-btn {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+/* --- Responsiveness (Mobile View) --- */
+@media (max-width: 768px) {
+    /* Header/Navigation */
+    nav {
+        display: block; /* Allows toggling */
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        display: none; /* Hide by default on mobile */
+        width: 100%;
+        background-color: #08223d; /* Darker blue for mobile menu */
+        position: absolute;
+        top: 60px; /* Below the header */
+        right: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    nav ul.active {
+        display: flex; /* Show when active */
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #1a3c5a;
+    }
+    .nav-toggle {
+        display: block; /* Show the hamburger icon */
+    }
+    header .container {
+        padding: 10px 15px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 60px 0;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+/* --- Maulana Maududi Section Styling (Add to style.css) --- */
+.maududi-section {
+    background-color: white;
+}
+.maududi-content {
+    padding: 20px;
+    border-right: 5px solid #FFD700;
+}
+.maududi-content h4 {
+    color: #0A2B4C;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.maududi-content ul {
+    list-style: none;
+    padding: 0;
+}
+.maududi-content ul li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+.maududi-content ul li i {
+    color: #FFD700;
+    margin-left: 10px;
+}
+.quote {
+    background-color: #f0f4f7;
+    border-right: 4px solid #0A2B4C;
+    padding: 15px;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+
+
+
+.maududi-image {
+    text-align: center;
+    padding-top: 15px;
+}
+.maududi-image img {
+    max-width: 10%;
+    height: auto;
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 3px solid #FFD700; /* Gold border around the image */
+}
+.sidebar { flex: 1; }
+
+.sidebar-box {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-top: 4px solid var(--gold);
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Book Card Styling */
+.book-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+}
+
+.book-img img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-download {
+    display: inline-block;
+    background: #007a3d;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Dastoor Box Styling (The Highlight Box) */
+.dastoor-box {
+    background: linear-gradient(135deg, #04093f 10%, #d9e76a 100%);
+    color: white;
+    padding: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-column: span 2; /* Spans across two columns */
+}
+
+@media (max-width: 768px) {
+    .dastoor-box { grid-column: span 1; }
+}
+
+.btn-view-dastoor {
+    display: inline-block;
+    margin-top: 20px;
+    background: #ffcc00;
+    color: #333;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-view-dastoor:hover {
+    background: #fff;
+    color: #0bad2b;
+}
+/* نیوز لیٹر اسٹائلز */
+.newsletter-section {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+    direction: rtl; /* اردو کے لیے دائیں سے بائیں */
+}
+
+.newsletter-box {
+    background: linear-gradient(135deg, #008000, #004d00);
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.newsletter-content h2 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.newsletter-content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.input-group input {
+    flex: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    outline: none;
+    font-family: inherit;
+}
+
+.btn-subscribe {
+    background: #008000;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-subscribe:hover {
+    background: #ffd700; /* سنہرا رنگ برائے توجہ */
+    color: #004d00;
+}
+
+#subscribeMessage {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* موبائل کے لیے سیٹنگ */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        background: transparent;
+        border-radius: 0;
+    }
+    .input-group input {
+        border-radius: 50px;
+        margin-bottom: 10px;
+    }
+}
+/* --- Responsiveness for Maududi Section --- */
+@media (max-width: 992px) {
+    /* Stack the image and text vertically on tablets/mobiles */
+    .maududi-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    /* Move image to the top on mobile */
+    .maududi-image {
+        order: -1; 
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+               <a href="http://127.0.0.1:5500/jamateislami/index.html#">
+        <img src="./تحریک اسلامی _ نئے خواب، نیا سفر_files/jamaat_islami_harm_logo1-removebg-preview.png">
+      </a>
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+                <h1>تحریک اسلامی</h1>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="http://127.0.0.1:5500/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="http://127.0.0.1:5500/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="http://127.0.0.1:5500/jamateislami/qayadat.html">  قیادت</a></li>
+                    <li><a href="http://127.0.0.1:5500/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="http://127.0.0.1:5500/jamateislami/index.html#contact-us">رابطہ</a></li>
+                      <li><a href="http://127.0.0.1:5500/jamateislami/books.html"> دیگر  </a></li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                
+                <h2>عدل و انصاف کی بنیاد پر                  </h2>
+                 
+                <p>قرآن و سنت کی روشنی میں، ایک فلاحی ریاست کی تعمیر ہمارا مقصد ہے۔</p>
+                <a href="http://127.0.0.1:5500/jamateislami/mansur.html" class="btn primary-btn">منشور دیکھیں</a>
+                <a href="http://127.0.0.1:5500/jamateislami/baniqayadat.html" class="btn secondary-btn">مزید جانیں</a>
+            </div>
+        </section>
+
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h3>ہمارا تعارف</h3>
+                <div class="about-grid">
+                    <div class="card">
+                        <i class="fas fa-history"></i>
+                        <h4>تاریخ</h4>
+                        <p>قیام: 1941ء میں، اسلام کے ایک مکمل ضابطۂ حیات کے نفاذ کے لیے ایک فکری اور عملی تحریک کا آغاز ہوا۔</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-user-tie"></i>
+                        <h4>بانی</h4>
+                        <p>امام سید ابوالاعلیٰ مودودیؒ کی فکر سے متاثر ہو کر، یہ قافلہ آج لاکھوں افراد پر مشتمل ہے۔</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>مقصد</h4>
+                        <p>ملک میں اسلامی نظام کا فروغ، جمہوری اقدار کا تحفظ اور کرپشن سے پاک معاشرے کی تشکیل۔</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="maududi" class="section maududi-section">
+     <div class="maududi-image">
+                        <img src="./تحریک اسلامی _ نئے خواب، نیا سفر_files/abul-ala-maududi-9d70e8c4-8b9e-4973-b04d-f9a40f6036f-resize-750.jpeg" alt="سید ابوالاعلیٰ مودودی">
+                    </div>
+            <div class="container">
+                <h3>بانی جماعت: سید ابوالاعلیٰ مودودیؒ</h3>
+                <div class="maududi-content">
+                    <p>مولانا سید ابوالاعلیٰ مودودیؒ اسلامی دنیا کی اکیسویں صدی کے سب سے بڑے مفکر، مفسر، اور اسلامی تحریک کے بانی تھے۔ انہوں نے نہ صرف اسلام کی حقیقی تعبیر پیش کی، بلکہ اسے ایک مکمل ضابطۂ حیات کے طور پر نافذ کرنے کے لیے ایک منظم اور ہمہ گیر (Comprehensive) تحریک کی بنیاد بھی رکھی۔</p>
+                    
+                    <h4>اہم فکری نکات:</h4>
+                    <ul>
+                        <li><i class="fas fa-book-open"></i> **تفہیم القرآن:** قرآن مجید کی جامع اور عصری تفسیر۔</li>
+                        <li><i class="fas fa-hand-holding-heart"></i> **اقامتِ دین:** زندگی کے ہر شعبے میں اللہ کے نظام کا نفاذ۔</li>
+                        <li><i class="fas fa-globe-asia"></i> **عالمی اثرات:** دنیا بھر کی اسلامی تحریکوں کے لیے رہنمائی کا ذریعہ۔</li>
+                    </ul>
+
+                    <blockquote class="quote">
+                        "یہ کوئی سیاسی جماعت نہیں بلکہ اقامتِ دین کی ایک تحریک ہے جو زندگی کے تمام پہلوؤں میں اسلامی تعلیمات کی پیروی پر زور دیتی ہے۔"
+                    </blockquote>
+
+                </div>
+            </div>
+        </section>
+       
+        <section id="manifesto" class="section manifesto-section">
+            <div class="container">
+                <h3>منشور کے اہم نکات</h3>
+                <div class="manifesto-grid">
+                    <div class="manifesto-point">
+                        <i class="fas fa-mosque"></i>
+                        <h4>قرآن و سنت کی بالادستی</h4>
+                        <p>آئین کی روشنی میں تمام قوانین کو شریعت کے مطابق ڈھالنا۔</p>
+                    </div>
+                    <div class="manifesto-point">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>سود سے پاک معیشت</h4>
+                        <p>ملکی معیشت کو سود سے پاک کر کے ایک مضبوط اقتصادی ڈھانچہ قائم کرنا۔</p>
+                    </div>
+                    <div class="manifesto-point">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>مفت اور معیاری تعلیم</h4>
+                        <p>ہر بچے کے لیے مفت، معیاری اور یکساں نظامِ تعلیم کا نفاذ۔</p>
+                    </div>
+                    <div class="manifesto-point">
+                        <i class="fas fa-users"></i>
+                        <h4>خوشحال خواتین و نوجوان</h4>
+                        <p>خواتین کے وراثتی حقوق کی ضمانت اور نوجوانوں کے لیے روزگار کے نئے مواقع۔</p>
+                    </div>
+                </div>
+                <a href="http://127.0.0.1:5500/jamateislami/mansur.html" class="btn primary-btn centered-btn">مکمل منشور ڈاؤن لوڈ کریں</a>
+            </div>
+        </section>
+ 
+
+<div class="dastoor-box">
+            <div class="dastoor-content">
+                <i class="fas fa-book-open fa-3x"></i>
+                <h2>جماعتِ اسلامی کا دستور</h2>
+                <p>جماعتِ اسلامی کے مقاصد، نصب العین اور تنظیمی ڈھانچے کی مکمل تفصیلات یہاں پڑھیں۔</p>
+                <a href="http://127.0.0.1:5500/jamateislami/dastoor.html" class="btn-view-dastoor">دستور پڑھیں</a>
+            </div>
+        </div>
+
+          
+      
+
+        <section id="news" class="section news-section">
+            <div class="container">
+                <h3>  اقتباسات </h3>
+                <div class="news-list">
+                    <article class="news-item">
+                       
+                        <h4>  اقامت دین، نفاذ شریعت اور اجرائے حدود اللہ کے لیے حکومت چاہنا از سید ابو الاعلیٰ مودودیؒ </h4>  
+                    
+                        <a href="http://127.0.0.1:5500/jamateislami/iqtasab.html">مزید پڑھیں <i class="fas fa-arrow-left"></i></a>
+                    </article>
+
+                    <article class="news-item">
+                           <h3>      رسائل و مسائل </h3>
+                      <br>
+                       <br>
+                      <span> ختم نبوت   </span>
+                       <br>
+                        <a href="http://127.0.0.1:5500/jamateislami/khatamen.html">مزید پڑھیں <i class="fas fa-arrow-left"></i></a>
+                          <br> 
+                        <br>
+                        <span>  حضرت علیؓ کی امیدواری خلافت؟ </span> 
+                        <br> 
+                        <a href="http://127.0.0.1:5500/jamateislami/imam.html">مزید پڑھیں <i class="fas fa-arrow-left"></i></a>
+                           <br>
+                           <br>     
+                        <span>  علم غیب رسل</span>
+                        <br> 
+                        <a href="http://127.0.0.1:5500/jamateislami/ilm.html">مزید پڑھیں <i class="fas fa-arrow-left"></i></a> 
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <h3>ملک کی ترقی میں اپنا کردار ادا کریں</h3>
+                <br> 
+                <a href="http://127.0.0.1:5500/jamateislami/volunteer.html" class="btn primary-btn cta-btn">رضاکار بنیں</a>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-box">
+            <div class="newsletter-content">
+                <h2>تازہ ترین اپڈیٹس حاصل کریں</h2>
+                <p>جماعتِ اسلامی کی سرگرمیوں، خبروں اور نئے پروگراموں سے باخبر رہنے کے لیے ہمارا نیوز لیٹر سبسکرائب کریں۔</p>
+            </div>
+            
+            <form id="newsletterForm" class="newsletter-form">
+                <div class="input-group">
+                    <input type="email" id="subscriberEmail" placeholder="اپنا ای میل ایڈریس لکھیں..." required="">
+                    <button type="submit" class="btn-subscribe">سبسکرائب کریں</button>
+                </div>
+            </form>
+            
+            <div id="subscribeMessage" class="hidden"></div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="http://127.0.0.1:5500/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="http://127.0.0.1:5500/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="http://127.0.0.1:5500/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="http://127.0.0.1:5500/jamateislami/index.html#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="copyright">
+                <p>© 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./تحریک اسلامی _ نئے خواب، نیا سفر_files/script.js.download"></script>
+    <script>
+        document.getElementById('nav-toggle').onclick = function() {
+    var menu = document.getElementById('nav-menu');
+    // Toggle the 'active' class to show/hide the menu
+    menu.classList.toggle('active');
+};
+document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('subscriberEmail').value;
+    const message = document.getElementById('subscribeMessage');
+    
+    // کامیابی کا پیغام
+    message.innerHTML = `شکریہ! آپ کو ${email} پر جلد ہی تازہ ترین خبریں موصول ہونا شروع ہو جائیں گی۔`;
+    message.classList.remove('hidden');
+    
+    // فارم ری سیٹ کریں
+    this.reset();
+});
+// Optional: Hide menu when a link is clicked (useful for single-page design)
+var navLinks = document.querySelectorAll('#nav-menu a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        var menu = document.getElementById('nav-menu');
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+        }
+    });
+});
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
