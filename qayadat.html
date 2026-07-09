@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صوبائی قیادت - پروفائل پیج</title>
+    <style>
+        /* بنیادی سیٹنگز */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #1a5276;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* کارڈز کی ترتیب */
+        .leaders-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* انفرادی کارڈ کا ڈیزائن */
+        .leader-card {
+            background: #ffffff;
+            width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border-top: 5px solid #1a5276;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-top: 5px solid #27ae60;
+        }
+
+        .image-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #eee;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            color: #27ae60;
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* فوٹر بٹن (سوشل میڈیا یا رابطہ) */
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background-color: #1a5276;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #27ae60;
+        }
+         .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } 
+
+
+           .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Footer Base Styles */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl; /* Sets text direction to Right-to-Left */
+    text-align: right;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+/* Headings (Yellow Color) */
+.footer-column h3 {
+    color: #ffcc00;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Contact & Link Styles */
+.footer-column p, .footer-column ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffcc00;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    color: #ffcc00;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-column h3 {
+        display: block;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+    <div class="container">
+        <div class="header">
+           <h1> مرکزی قیادت </h1>
+          
+        </div>
+          <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+               
+                <option value="qayadat.html" selected>  مرکزی قیادت    </option> 
+                   <option value="baniqayadat.html">    بانی جماعت    </option>
+               
+                <option value="sobayiqayadat.html">  صوبائی قیادت    </option>
+                  
+                
+
+            </select>
+        </div>
+
+        <div class="leaders-grid">
+            
+    
+                
+            
+           
+  <div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/a73/306/662a73306e9c6128869995.jpg" alt="قائد 1">
+                </div>
+                <div class="name"> حافظ نعیم الرحمٰن  </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> امیر جماعت اسلامی پاکستان   </span> 
+                <p class="description">      </p>
+              
+            </div>
+  <div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/a74/0da/662a740da4db6392682130.jpeg" alt="قائد 1">
+                </div>
+                <div class="name">  امیر العظیم </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> جنرل سیکریٹری جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/a74/ceb/662a74ceb9772608360252.jpg" alt="قائد 1">
+                </div>
+                <div class="name">   لیاقت بلوچ</div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> رکن مجلس شوریٰ جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src="https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/b7a/523/662b7a5235935476689773.jpeg " alt="قائد 1">
+                </div>
+                <div class="name"> میاں محمد اسلم  </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> نائب امیر جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src="https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/a77/1cc/662a771cc659e494359164.jpeg " alt="قائد 1">
+                </div>
+                <div class="name">  ڈاکٹر اسامہ رضی </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> نائب امیر جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/662/a77/7ed/662a777ed3370921671346.jpeg" alt="قائد 1">
+                </div>
+                <div class="name">  ڈاکٹر عطا الرحمن   </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> نائب امیر جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src="https://jamaatpk.b-cdn.net/storage/app/uploads/public/663/394/3db/6633943db248a569122748.jpg " alt="قائد 1">
+                </div>
+                <div class="name">   خالد رحمٰن</div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title">ڈپٹی جنرل سیکریٹری جماعت اسلامی پاکستان </span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/663/394/e53/663394e53005a935585391.jpg" alt="قائد 1">
+                </div>
+                <div class="name">   سید وقاص انجم جعفری</div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title">ڈپٹی جنرل سیکریٹری جماعت اسلامی پاکستان </span> 
+                <p class="description">      </p>
+              
+            </div><div class="leader-card">
+                <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/663/395/215/663395215ddba878220136.jpg" alt="قائد 1">
+                </div>
+                <div class="name"> اظہر اقبال حسن  </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title">ڈپٹی جنرل سیکریٹری جماعت اسلامی پاکستان </span> 
+                <p class="description">      </p>
+              
+            </div>
+            <div class="leader-card">
+                <div class="image-container">
+                    <img src="https://jamaatpk.b-cdn.net/storage/app/uploads/public/663/395/394/6633953940969465390138.jpg " alt="قائد 1">
+                </div>
+                <div class="name">شیخ عثمان فاروق   </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> ڈپٹی جنرل سیکریٹری جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+             <div class="leader-card">
+             <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/663/395/5e9/6633955e9d790097822085.jpg" alt="قائد 1">
+             </div>
+                <div class="name"> سید فراست شاہ  </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title"> ڈپٹی جنرل سیکریٹری جماعت اسلامی پاکستان</span> 
+                <p class="description">      </p>
+              
+            </div>
+ <div class="leader-card">
+             <div class="image-container">
+                    <img src=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/673/e2b/06f/673e2b06f1189374333816.jpg" alt="قائد 1">
+                </div>
+                <div class="name"> پروفیسر محمد ابراہیم خان  </div>
+                <br> 
+                <br>
+                <br>    
+                <span class="title">نائب امیر جماعت اسلامی پاکستان </span> 
+                <p class="description">      </p>
+              
+            </div>
+
+ 
+          
+        </div>
+    </div>
+    <br>
+    <br>
+    <br> 
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-column contact-info">
+            <h3>رابطہ کی تفصیلات</h3>
+            <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+            <p><i class="fas fa-phone-alt"></i> +92 42 35432194</p>
+            <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com</p>
+        </div>
+
+        <div class="footer-column quick-links">
+            <h3>فوری لنکس</h3>
+            <ul>
+                <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column social-media">
+            <h3>سوشل میڈیا</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+    </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</body>
+</html>
