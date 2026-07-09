@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتب و مطبوعات | جماعت اسلامی</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles (Copied for standalone page functionality) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        body {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        h2 { 
+            color: #0A2B4C;
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        
+        /* --- Styles for Book Cards Grid --- */
+        .books-grid {
+            display: grid;
+            /* 4 columns on large screens */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .book-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; 
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid #0A2B4C; 
+            text-align: center;
+          height: 300px;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-image {
+            width: 120%;
+            height: 300px; /* Fixed height for book cover */
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .book-image img {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+        
+        .book-card:hover .book-image img {
+             transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        .book-content {
+            padding: 15px 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-content h4 {
+            color: #0A2B4C;
+            font-size: 1.25rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .book-meta {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .book-meta span {
+            font-weight: 700;
+            color: #FFD700;
+        }
+        
+        .book-actions {
+            margin-top: auto; /* Push actions to the bottom */
+            display: flex;
+            justify-content: space-around;
+            padding-top: 15px;
+            border-top: 1px dotted #eee;
+        }
+
+        .btn-action {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn-download {
+            background-color: #0A2B4C;
+            color: white;
+        }
+        .btn-download:hover {
+            background-color: #FFD700;
+            color: #0A2B4C;
+        }
+        
+        .btn-read {
+            background-color: #FFD700;
+            color: #0A2B4C;
+        }
+        .btn-read:hover {
+            background-color: #e0b000;
+        }
+  .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 30px 0;
+        }
+        .pagination a {
+            color: #0A2B4C;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 700;
+        }
+        .pagination a:hover, .pagination a.active {
+            background-color: #FFD700;
+            color: #0A2B4C;
+            border-color: #FFD700;
+        }
+        .pagination a.current-page {
+             background-color: #0A2B4C;
+             color: white;
+             border-color: #0A2B4C;
+        }
+        .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } 
+
+   
+         .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+    </style>
+</head>
+<body>
+  <header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>   
+        
+        <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+               
+                <option value="books.html" selected> کتب</option> 
+                   <option value="iqtasab.html">     اقتباسات   </option>
+               
+                <option value="baniqayadat.html#rasal-masail">      رسائل و مسائل  </option>
+                  
+                
+
+            </select>
+        </div>
+
+    <div class="container">
+        <h2>کتب و مطبوعات</h2>
+        
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">
+            یہاں جماعت اسلامی اور بانی تحریک سید ابوالاعلیٰ مودودیؒ کی تمام اہم مطبوعات اور تحقیقی کتب آن لائن دستیاب ہیں۔
+        </p>
+        
+        <div class="books-grid">
+            
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="/jamateislami/images/pic1.webp" alt="تفہیم القرآن کا کور">
+                </div>
+                <div class="book-content">
+                    <h4>تفہیم القرآن ( جلد اول)</h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/762/7d2/6127627d2bf23662838934.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/762/7d2/6127627d2bf23662838934.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+             <div class="book-card">
+                <div class="book-image">
+                    <img src="/jamateislami/images/pic1.webp" alt="تفہیم القرآن کا کور">
+                </div>
+                <div class="book-content">
+                    <h4> ( جلد دوم)  تفہیم القرآن  </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/762/c0c/612762c0c3e22034157792.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/762/c0c/612762c0c3e22034157792.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+             <div class="book-card">
+                <div class="book-image">
+                    <img src="/jamateislami/images/pic1.webp" alt="تفہیم القرآن کا کور">
+                </div>
+                <div class="book-content">
+         <h4>   ( جلد سوم) تفہیم القرآن  </h4>
+                     <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                   <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/763/081/612763081ccf8221500466.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/763/081/612763081ccf8221500466.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+             <div class="book-card">
+                <div class="book-image">
+                    <img src="/jamateislami/images/pic1.webp" alt="تفہیم القرآن کا کور">
+                </div>
+                <div class="book-content">
+ <h4>  (جلد ششم) تفہیم القرآن  </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/763/71c/61276371cf920479008519.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/763/71c/61276371cf920479008519.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+            
+           
+          
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://quranwahadith.com/wp-content/uploads/2021/08/Tehreek-e-Azadi-Hind-Aur-Musalman-1-190x300.jpg" alt="اسلامی ریاست کا کور">
+                </div>
+                <div class="book-content">
+                 <h4> تاریخِ آزادیِ ہند اور مسلمان، جلد دوم</h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/761/d7c/612761d7cb91a834559831.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/761/d7c/612761d7cb91a834559831.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://quranwahadith.com/wp-content/uploads/2021/08/Tehreek-e-Azadi-Hind-Aur-Musalman-194x300.jpg" alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+          <h4> تاریخِ آزادیِ ہند اور مسلمان </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/346/641/612346641fba8679710502.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/346/641/612346641fba8679710502.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+             <div class="book-card">
+                <div class="book-image">
+                    <img src=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEit7-M6pXKwdRemi1AQ_OwHHpAuMbCrNEZJKXfFQuJ2n7YX8nMD8_mB3XID9wobODKEwOCxZD_4qW86qouAJvalKVOuGYdbkyciOre_Tw1FUbqMm6IVzMtRuIgTrt_bMwIL2n4inZYEysc/w177-h242/Kitab+Us+Soam+by+Abu+Ala+Maududi+PDF.webp" >
+                </div>
+                <div class="book-content">
+     <h4> كتاب الصوم </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/75e/146/61275e1469903853538714.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/75e/146/61275e1469903853538714.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.ixihZ5B4MSMkcfEKn1rvWQHaKk?pid=Api&h=220&P=0" alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+     <h4>   (جلد سوم) تفہیمات </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/345/be0/612345be08559851109231.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/345/be0/612345be08559851109231.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D22AQHTYDMRpWYI0w/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1734015611222?e=2147483647&v=beta&t=4RXqlxOnM-da0QvhWe0fIy2Mfh3Uu2qZmzNUMZJJm9E" alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+     <h4> معاشیاتِ اسلام </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/344/6b3/6123446b356db143683833.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/344/6b3/6123446b356db143683833.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E22AQEmPhTQO0pumA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1734019209690?e=2147483647&v=beta&t=uNO5_NyWSanlJrltxZUl7F2656ITVlYjHubIeahmRqY " alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+     <h4>  سنت کی آئینی حیثیت </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/343/a09/612343a09f694321745379.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/343/a09/612343a09f694321745379.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://m.media-amazon.com/images/I/41Tve8-6w4L._SY445_SX342_.jpg" alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+     <h4> خلافت و ملوکیت </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/342/a90/612342a9005d0788846858.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/342/a90/612342a9005d0788846858.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+              <div class="book-card">
+                <div class="book-image">
+                    <img src="https://kitabmela.com.pk/cdn/shop/products/Islami_Tehzeeb_Aur_Us_Kay_Asool_O_Mubadi_1200x.jpg?v=1659520647" alt="حقوق الزوجین کا کور">
+                </div>
+                <div class="book-content">
+     <h4>  اسلامی تہذیب اور اس کے اصول </h4>
+                    <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+                    <div class="book-actions">
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/340/b3e/612340b3e2692053150698.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+                        <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/340/b3e/612340b3e2692053150698.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+                    </div>
+                </div>
+            </div>
+            
+           
+ <div class="book-card">
+ <div class="book-image">
+       <img src=" https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1615088138i/57331587.jpg" alt="حقوق الزوجین کا کور" >
+
+  </div>
+   <div class="book-content">
+    <h4> تنقیحات </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33f/c03/61233fc037a2c427104482.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33f/c03/61233fc037a2c427104482.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1637144005i/59642595.jpg" >
+
+  </div>
+   <div class="book-content">
+    <h4> قادیانی مسئلہ </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33e/43c/61233e43c6597115877729.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33e/43c/61233e43c6597115877729.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src="https://dukaan.b-cdn.net/700x700/webp/media/1f1ddc06-f7e0-4022-bd88-ce8b3ccef290.png" >
+  </div>
+   <div class="book-content">
+    <h4> خطبات </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33d/1d7/61233d1d7178f081894635.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33d/1d7/61233d1d7178f081894635.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            <div class="book-card">
+ <div class="book-image">
+       <img src="https://www.linkshop.pk/image/cache/islam/sood-550x550h.jpg" >
+  </div>
+   <div class="book-content">
+    <h4>سود </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33b/f60/61233bf607993038232427.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/612/33b/f60/61233bf607993038232427.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse3.mm.bing.net/th/id/OIP._76NS60Bc1YRgAlDVBcIzQHaKk?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4 >رسائل و مسائل (جلد چہارم )    </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca4/c34/611ca4c34dc77064020509.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca4/c34/611ca4c34dc77064020509.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse3.mm.bing.net/th/id/OIP._76NS60Bc1YRgAlDVBcIzQHaKk?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4> رسائل و مسائل ( جلد سوم)</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca4/144/611ca41445fa5219458799.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca4/144/611ca41445fa5219458799.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+       <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse3.mm.bing.net/th/id/OIP._76NS60Bc1YRgAlDVBcIzQHaKk?pid=Api&h=220&P=0 " >
+  </div>
+   <div class="book-content">
+    <h4> رسائل و مسائل       (جلد دوم)        </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca3/5db/611ca35db1b6b916967370.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca3/5db/611ca35db1b6b916967370.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+       <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse3.mm.bing.net/th/id/OIP._76NS60Bc1YRgAlDVBcIzQHaKk?pid=Api&h=220&P=0 " >
+  </div>
+   <div class="book-content">
+    <h4>  رسائل و مسائل ( جلد اول)</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca2/288/611ca22880a77677604567.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca2/288/611ca22880a77677604567.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+       <div class="book-card">
+ <div class="book-image">
+       <img src="https://www.linkshop.pk/image/cache/islam/parda-550x550h.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> پردہ </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca1/1a9/611ca11a9fd88504039568.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca1/1a9/611ca11a9fd88504039568.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+   <div class="book-card">
+ <div class="book-image">
+       <img src=" https://digestnovels.site/wp-content/uploads/2023/05/Namaz-Kaisay-Behter-Bamain-by-Abul-Ala-Maududi-717x1024.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> نماز</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca0/6b9/611ca06b94edb541524035.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/ca0/6b9/611ca06b94edb541524035.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+   <div class="book-card">
+ <div class="book-image">
+       <img src=" https://kitabmart.com/wp-content/uploads/2024/09/IMG20240927082826_copy_863x1146.jpg " >
+  </div>
+   <div class="book-content">
+    <h4> اسلامی ریاست </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/c9f/595/611c9f5952885952926857.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/c9f/595/611c9f5952885952926857.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+   <div class="book-card">
+ <div class="book-image">
+       <img src=" https://imgv2-2-f.scribdassets.com/img/document/59847359/149x198/4bcbb0e699/1542800079?v=1" >
+  </div>
+   <div class="book-content">
+    <h4> بناؤ اور بگاڑ </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/a14/c8c/611a14c8cab41652571022.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/611/a14/c8c/611a14c8cab41652571022.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://imgv2-2-f.scribdassets.com/img/document/18483741/original/d26021e8a3/1?v=1" >
+  </div>
+   <div class="book-content">
+    <h4> اسلامی نظامِ زندگی </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/2ad/048/60f2ad04878c1653360713.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/2ad/048/60f2ad04878c1653360713.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse2.mm.bing.net/th/id/OIP.bT0QzsQ7Up6EVEky4nNAsQHaLH?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4>  الجہاد فی الاسلام </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/2a2/b27/60f2a2b27c3d9887844686.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/2a2/b27/60f2a2b27c3d9887844686.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse3.mm.bing.net/th/id/OIP.4ZMc9q27ETwUWYzbbLdVUgAAAA?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4>تعلیمات  </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29f/de8/60f29fde8dec0458105822.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29f/de8/60f29fde8dec0458105822.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://rekhta.pc.cdn.bitgravity.com/Images/EBooks/small_islam-aur-zabt-e-wiladat-abul-ala-maudoodi-ebooks.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> اسلام اور ضبطِ ولادت </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29e/ea2/60f29eea27260247542626.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29e/ea2/60f29eea27260247542626.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+  
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://rekhta.pc.cdn.bitgravity.com/Images/EBooks/small_huqooq-ul-zaujain-abul-ala-maudoodi-ebooks.jpg" >
+  </div>
+   <div class="book-content">
+    <h4>حقوق الزوجین </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29e/289/60f29e2895a80713637850.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29e/289/60f29e2895a80713637850.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://www.linkshop.pk/image/cache/islam/fazail-e-quran-by-maulana-abul-ala-maududi-1000x1000w.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> فضائلِ قرآن </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29d/0c7/60f29d0c70b0e150805549.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29d/0c7/60f29d0c70b0e150805549.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+       <div class="book-card">
+ <div class="book-image">
+       <img src=" https://img.drz.lazcdn.com/g/kf/S5952152928db4b78b64e670f1cc750d5h.jpg_720x720q80.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> دینیات</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29b/0de/60f29b0dee4f2677383286.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/29b/0de/60f29b0dee4f2677383286.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src="https://kitabmela.com.pk/cdn/shop/products/Tajdeed_O_Ahya_E_Deen.jpg?v=1659520654" >
+  </div>
+   <div class="book-content">
+    <h4> تجدید و احیائے دین</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/297/a5a/60f297a5abb23673175806.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/297/a5a/60f297a5abb23673175806.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://kitabmart.com/wp-content/uploads/2020/04/Quran-Ki-Chaar-Buniyadi-IstalaheinU_1Maulana-Sayyid-Abul-Ala-Maudoodi.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> قرآن کی چار بنیادی اصطلاحیں</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/297/0e0/60f2970e048b8816404031.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/297/0e0/60f2970e048b8816404031.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1564345364l/52409396.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> اسلام اور جدید معاشی نظریات</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/296/862/60f296862bad8212545335.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60f/296/862/60f296862bad8212545335.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://islamicpublications.pk/wp-content/uploads/2021/05/nashri-taqreerain-f.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> نشری تقریریں  </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f02/a9f/60ef02a9f301a091610927.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f02/a9f/60ef02a9f301a091610927.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1699166604i/143345680.jpg" >
+  </div>
+   <div class="book-content">
+    <h4>اسلامی عبادات پر تحقیقی نظر </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f02/4ca/60ef024caa6af942940506.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f02/4ca/60ef024caa6af942940506.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://imgv2-2-f.scribdassets.com/img/document/73820251/original/a06391de25/1?v=1" >
+  </div>
+   <div class="book-content">
+    <h4> دعوتِ اسلامی اور اس کے مطالبات</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f01/a03/60ef01a0318c8046169164.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/f01/a03/60ef01a0318c8046169164.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse4.mm.bing.net/th/id/OIP.OlkpNZGUb9ZdYR4Clv-jjgAAAA?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4> مسئلہ جبر و قدر</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e85/0be/60ee850bed05e494459920.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e85/0be/60ee850bed05e494459920.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" /jamateislami/images/pic1.webp" >
+  </div>
+   <div class="book-content">
+      <h4>   ( جلد پنجم ) تفہیم القرآن  </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e84/6c2/60ee846c29678931080469.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e84/6c2/60ee846c29678931080469.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src="/jamateislami/images/pic1.webp" >
+  </div>
+   <div class="book-content">
+     <h4>   (جلد چہارم ) تفہیم القرآن  </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e84/19e/60ee8419ed1c3929523322.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e84/19e/60ee8419ed1c3929523322.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div> 
+            
+            
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://pbs.twimg.com/media/FZpEeMvWIAIQnlW.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> 2-استفسارات</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e83/87a/60ee8387a717e711345298.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e83/87a/60ee8387a717e711345298.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+      
+          <div class="book-card">
+ <div class="book-image">
+       <img src="  https://pbs.twimg.com/media/FZpEeMvWIAIQnlW.jpg" >
+  </div>
+   <div class="book-content">
+     <h4>  1-استفسارات</h4> 
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e82/835/60ee82835b85d054845648.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e82/835/60ee82835b85d054845648.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+      
+          <div class="book-card">
+ <div class="book-image">
+       <img src="https://tse3.mm.bing.net/th/id/OIP._76NS60Bc1YRgAlDVBcIzQHaKk?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4> رسائل و مسائل </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e82/04c/60ee8204c734e927078042.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e82/04c/60ee8204c734e927078042.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+      
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://lh3.googleusercontent.com/d/16v5bW3XqcQ0OofXya4COvCDqRpeij1EZ=s220?authuser=0" >
+  </div>
+   <div class="book-content">
+    <h4> کلمہ طیبہ </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e81/259/60ee81259fb1d066745579.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e81/259/60ee81259fb1d066745579.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+      
+          <div class="book-card">
+ <div class="book-image">
+       <img src=" https://mawdudicentury.com/wp-content/uploads/2023/02/%D9%85%D8%B3%D9%84%D9%85%D8%A7%D9%86%D9%88%DA%BA-%DA%A9%D8%A7-%D9%85%D8%A7%D8%B6%DB%8C-%D9%88-%D8%AD%D8%A7%D9%84-%D8%A7%D9%88%D8%B1-%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84.png" >
+  </div>
+   <div class="book-content">
+    <h4> مسلمانوں کا ماضی، حال اور مستقبل </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e80/a85/60ee80a85f4a1242015053.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e80/a85/60ee80a85f4a1242015053.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+       <div class="book-card">
+ <div class="book-image">
+       <img src=" https://www.linkshop.pk/image/cache/history/dakan-ki-siasi-tareekh-600x315w.jpg.webp" >
+  </div>
+   <div class="book-content">
+    <h4> تاریخِ اسلام <br> ایک تاریخ، ایک داستان</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e7f/d5b/60ee7fd5b4e2c362670414.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/e7f/d5b/60ee7fd5b4e2c362670414.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+       <div class="book-card">
+ <div class="book-image">
+       <img src="https://rekhta.pc.cdn.bitgravity.com/Images/EBooks/small_islam-ka-nizam-e-hayat-abul-ala-maudoodi-ebooks.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> اسلام کا نظامِ حیات </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dba/a5e/60edbaa5ee583025777960.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dba/a5e/60edbaa5ee583025777960.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+            
+       <div class="book-card">
+<div class="book-image">
+     <img src=" https://jadeed.store/cdn/shop/files/14849.jpg?v=1700648818" >
+  </div>
+   <div class="book-content">
+<h4> تاریخ اور کارکن </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/ae5/60edb9ae5f16c477821671.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/ae5/60edb9ae5f16c477821671.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+   <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse2.mm.bing.net/th/id/OIP.uu1HV-6Z5NpaoOw4oArzlAHaJ4?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4> خطباتِ یورپ</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/68a/60edb968a2db2089309039.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/68a/60edb968a2db2089309039.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+   
+           
+  
+           
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://handwiki.org/wiki/images/8/84/Abul_A'la_Maududi.jpg" >
+  </div>
+   <div class="book-content">
+    <h4>اسلام اور جاہلیت </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/c3f/60edb8c3f0f02655832438.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/c3f/60edb8c3f0f02655832438.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+  
+           
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://handwiki.org/wiki/images/8/84/Abul_A'la_Maududi.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> تاریخِ اسلام کی اخلاقی بنیادیں </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/10e/60edb910ee501088971192.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db9/10e/60edb910ee501088971192.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://handwiki.org/wiki/images/8/84/Abul_A'la_Maududi.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> اسلام کا اخلاقی نقطۂ نظر</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/70d/60edb870df797214165510.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/70d/60edb870df797214165510.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+  
+  
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src="  https://dms.mydukaan.io/original/webp/media/69528920-29a4-40bf-8e76-850ef46b52a3.png" >
+  </div>
+   <div class="book-content">
+    <h4> مسئلہ ملکیتِ زمین</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/70d/60edb870df797214165510.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db8/70d/60edb870df797214165510.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://genrica.com/Images/booksImages/Khawateen_aur_Deeni_Masail.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> خواتین اور دینی مسائل</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db7/a68/60edb7a68f12e800406540.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db7/a68/60edb7a68f12e800406540.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://mawdudicentury.com/wp-content/uploads/2023/02/%D8%AC%DB%81%D8%A7%D8%AF-%D9%81%DB%8C-%D8%B3%D8%A8%DB%8C%D9%84-%D8%A7%D9%84%D9%84%DB%81.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> جہاد فی سبیل اللہ</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db7/612/60edb7612e355898182714.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db7/612/60edb7612e355898182714.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" https://rekhta.pc.cdn.bitgravity.com/Images/EBooks/small_shahadat-e-haq-abul-a-la-maududi-ebooks.jpg" >
+  </div>
+   <div class="book-content">
+<h4> شہادتِ حق</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db6/f79/60edb6f797006573758248.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db6/f79/60edb6f797006573758248.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+  <div class="book-card">
+ <div class="book-image">
+       <img src=" http://prideofpakistan.com/halloffame/orgsize_745Maulana%20Maududi.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> تحریکِ اسلامی اور اس کا اگلا لائحہ عمل</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db5/7b3/60edb57b31c9a450360603.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db5/7b3/60edb57b31c9a450360603.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://imgv2-1-f.scribdassets.com/img/document/460378887/original/cd01801f2e/1?v=1" >
+  </div>
+   <div class="book-content">
+   <h4> توحید، رسالت اور زندگی بعدِ موت کا عقلی ثبوت</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/e50/60edb4e5019ea012697623.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/e50/60edb4e5019ea012697623.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" http://jadeed.store/cdn/shop/files/dd_11.jpg?v=1700815885" >
+  </div>
+   <div class="book-content">
+    <h4>مسئلہ قربانی </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/95d/60edb495dceae703786182.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/95d/60edb495dceae703786182.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://i.pinimg.com/736x/66/05/29/6605298f2872f43d7e996fdbd79a34ed.jpg" >
+  </div>
+   <div class="book-content">
+    <h4> اسلام: دورِ جدید کا مذہب</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/3b5/60edb43b56645308327522.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db4/3b5/60edb43b56645308327522.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse1.mm.bing.net/th/id/OIP.HX3o_T48yTjkzMlMuBKBkwHaKk?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4> حکومت برائی یا بھلائی کا سر چشمہ</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db1/2fc/60edb12fc2db3195186039.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db1/2fc/60edb12fc2db3195186039.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+           
+    <div class="book-card">
+ <div class="book-image">
+       <img src=" https://imgv2-1-f.scribdassets.com/img/document/346612981/original/6ac69bb15d/1?v=1" >
+  </div>
+   <div class="book-content">
+    <h4> ھدایات </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db0/c8c/60edb0c8cd358563129755.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/db0/c8c/60edb0c8cd358563129755.pdf " class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+
+
+   <div class="book-card">
+ <div class="book-image">
+       <img src="https://i.pinimg.com/736x/90/b2/21/90b221bf66b29a88a05808ab937cc045.jpg " >
+  </div>
+   <div class="book-content">
+    <h4>  دین اور خواتین</h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/daf/695/60edaf6958b95286651180.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href="https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/daf/695/60edaf6958b95286651180.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+  
+<div class="book-card">
+ <div class="book-image">
+       <img src=" https://tse4.mm.bing.net/th/id/OIP.WcwyKvkWteXQT0JDpVGH6wHaLw?pid=Api&h=220&P=0" >
+  </div>
+   <div class="book-content">
+    <h4>  اسلوب دعوت </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dad/d3a/60edadd3a2b21067711185.pdf" class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dad/d3a/60edadd3a2b21067711185.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+  
+
+  
+
+  
+<div class="book-card">
+ <div class="book-image">
+       <img src=" https://i.pinimg.com/originals/b9/a1/c4/b9a1c44069e078cf7a312a5d484af910.jpg" >
+  </div>
+   <div class="book-content">
+    <h4>دعوتِ دین کی ذمہ داری  </h4>
+ <div class="book-meta">مصنف: <span>سید ابوالاعلیٰ مودودیؒ</span></div>
+   <div class="book-actions">
+   <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dae/4d1/60edae4d196d9029606939.pdf " class="btn-action btn-download"><i class="fas fa-download"></i> ڈاؤن لوڈ (PDF)</a>
+    <a href=" https://jamaatpk.b-cdn.net/storage/app/uploads/public/60e/dae/4d1/60edae4d196d9029606939.pdf" class="btn-action btn-read"><i class="fas fa-book-open"></i> آن لائن پڑھیں</a>
+     </div>
+</div>
+  </div>
+
+  
+ 
+  
+
+  
+
+
+  
+
+           
+            
+               
+           
+   
+          
+            
+            </div>
+        
+        
+
+    </div>
+<footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="copyright">
+                <p>&copy; 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
