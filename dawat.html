@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوت تحریک اسلامی | مقصد اور طریقہ کار</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles (Copied for standalone page functionality) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        body {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        h2 { 
+            color: #0A2B4C;
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        h3 { 
+            color: #0A2B4C; 
+            font-size: 1.7rem;
+            margin-top: 30px;
+            border-right: 4px solid #FFD700;
+            padding-right: 15px;
+        }
+
+        /* --- Introduction Dropdown (Copied from previous step) --- */
+        .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } /* For screen readers */
+
+        /* --- New Styles for Dawat Page Content --- */
+        .dawat-content {
+            padding-bottom: 50px;
+        }
+        .dawat-point {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid #0A2B4C;
+        }
+        .dawat-point h4 {
+            color: #FFD700; /* Gold heading */
+            background-color: #0A2B4C; /* Deep Blue background */
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+        .dawat-point p:first-of-type {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .quote-box {
+            background-color: #f0f4f7;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            border-left: 5px solid #FFD700;
+        }
+        .quote-box p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            line-height: 2;
+        }
+        .quote-box small {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            color: #0A2B4C;
+            font-weight: 700;
+        }
+ .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+ footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+
+    <div class="container">
+        <h2>دعوت تحریک اسلامی</h2>
+        
+        <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+                <option value="taruf.html">جماعت (ہمارا تعارف)</option>
+                <option value="dawat.html" selected>دعوت</option>
+                <option value="dastoor.html">دستور</option>
+                <option value="mansur.html">منشور</option>
+                <option value="shauba.html">شعبہ جات</option>
+            </select>
+        </div>
+        
+        <div class="dawat-content">
+            
+            <p>ہماری دعوت کے متعلق عام طور پر جو بات کہی جاتی ہے وہ یہ ہے کہ ہم حکومت الہٰیہ کے قیام کی دعوت دیتے ہیں۔ حکومت الہٰیہ کالفظ کچھ تو خود غلط فہمی پیدا کرتا ہے اور کچھ اسے غلط فہمی پیدا کرنے کا ذریعہ بنایا جاتا ہے۔ لوگ یہ سمجھتے ہیں اور انہیں ایسا سمجھایا بھی جاتا ہے کہ حکومت الہٰیہ سے مراد محض ایک سیاسی نظام ہے اور ہماری غرض اس کے سوا اور کچھ نہیں ہے کہ موجودہ نظام کی جگہ وہ مخصوص سیاسی نظام قائم ہو۔ پھر چونکہ اس سیاسی نظام کے چلانے والے لامحالہ ہی مسلمان ہوں گے جو اس کے قیام کی تحریک میں حصہ لے رہے ہوں، اس لیے خود بخود اس تصور میں سے یہ معنی نکل آتے ہیں یا ہوشیاری سے نکال لیے جاتے ہیں کہ ہم محض حکومت چاہتے ہیں۔ اس کے بعد ایک دین دار وعظ ہوتا ہے اور ہم سے کہا جاتا ہے کہ تمہارے پیش نظر محض دنیا ہے۔ حالانکہ مسلمان کے پیش نظر دین اور آخرت ہونی چاہیئے اوریہ کہ حکومت طلب کرنے کی چیز نہیں ہے بلکہ ایک انعام ہے جو دین دار زندگی کے صلے میں اللہ کی طرف سے مل جاتا ہے۔ یہ باتیں کہیں تو نافہمی کے ساتھ کی جاتی ہیں اور کہیں نہایت ہوش مندی کے ساتھ اس غرض کے لیے کہ اگر ہمیں نہیں تو کم سے کم خلق خدا کے ایک بڑے حصے کو بد گمانیوں اور غلط فہمیوں میں مبتلا کیا جائے، حالانکہ اگر کوئی شخص ہمارے لٹریچر کو کھلے دل کے ساتھ پڑھے تو اس پر با آسانی یہ بات کھل سکتی ہے کہ ہمارے پیش نظر صرف ایک سیاسی نظام کا قیام نہیں ہے بلکہ ہم چاہتے ہیں کہ پوری انسانی زندگی....انفرادی اور اجتماعی زندگی....میں وہ ہمہ گیر انقلاب رونما ہو جو اسلام رونما کرناچاہتا ہے، جس کے لیے اللہ نے اپنے انبیاء کو مبعوث کیا تھا اور جس کی دعوت دینے اور جدوجہد کرنے کے لیے ہمیشہ انبیاء علیھم السلام کی امامت و رہنمائی میں امت مسلمہ کے نام سے ایک گروہ بنتا رہا ہے۔
+            </p>
+            
+            <div class="quote-box">
+                <h2> دعوت اسلامی کے تین نکات
+</h2>
+                <p>   
+اگر ہم اپنی اس دعوت کو مختصر طور پر صاف اور سیدھے الفاظ میں بیان کرنا چاہیں تو یہ تین نکات(Points) پر مشتمل ہوگی
+
+
+
+یہ کہ ہم بندگان خدا کو بالعموم اور جو پہلے سے مسلمان ہیں، ان کو بالخصوص اللہ کی بندگی کی دعوت دیتے ہیں۔
+
+
+
+یہ کہ جو شخص بھی اسلام قبول کرنے یا اس کو ماننے کادعویٰ یا اظہار کر لے، اس کو ہم دعوت دیتے ہیں کہ وہ اپنی زندگی سے منافقت اور تناقض کو خارج کر دے اور جب وہ مسلمان ہے، یا بنا ہے تو مخلص مسلمان بنے، اور اسلام کے رنگ میں رنگ کر یک رنگ ہوجائے۔
+
+
+
+یہ کہ زندگی کا نظام جو آج باطل پرستوں اور فساق و فجار کی رہنمائی اور قیادت و فرمانروائی میں چل رہا ہے اور معاملات دنیا کے نظام کی زمام کار جو خدا کے باغیوں کے ہاتھ میں آگئی ہے، ہم یہ دعوت دیتے ہیں کہ اسے بدلا جائے اور رہنمائی و امامت نظری و عملی دونوں حیثیتوں سے مؤمنین و صالحین کے ہاتھ میں ہو۔ 
+
+
+
+یہ تینوں نکات اگرچہ اپنی جگہ بالکل صاف ہیں، لیکن ایک مدت دراز سے ان پر غفلتوں اورغلط فہمیوں کے پردے پڑے ہوئے ہیں۔ اس لیے بد قسمتی سے آج غیر مسلموں کے سامنے ہی نہیں بلکہ مسلمانوں کے سامنے بھی ان کی تشریح کی ضرورت پیش آگئی ہے۔
+
+
+                </p>
+                 
+            </div>
+
+            <div class="dawat-point">
+                <h4>1. ہماری دعوت </h4>
+                <p>
+               مسلمانوں کو ہم جس چیز کی طرف بلاتے ہیں وہ یہ ہے کہ وہ ان ذمہ داریوں کو سمجھیں اور ادا کریں جو مسلمان ہونے کی حیثیت سے ان پر عائد ہوتی ہیں۔ وہ ذمہ داریاں کیا ہیں؟ وہ صرف یہی نہیں ہیں کہ آپ نکاح، طلاق، وراثت وغیرہ کے معاملات میں اسلام کے مقرر کیے ہوئے ضابطے پر عمل کریں۔ بلکہ ان سب کے علاوہ ایک بڑی اور بہت بھاری ذمہ داری آپ پر یہ بھی عائد ہوتی ہے کہ آپ تمام دنیا کے سامنے اس حق کے گواہ بن کر کھڑے ہوں جس پر آپ ایمان لائے ہیں۔مسلمان کے نام سے آپ کو ایک مستقل امت بنانے کی واحد غرض جو قرآن میں بیان کی گئی ہے کہ وہ یہی ہے کہ آپ تمام بندگان خدا پر شہادت حق کی حجت قائم کریں۔ اسی شہادت کے لیے انبیاء علیھم السلام دنیا میں بھیجے گئے تھے اور اس کا ادا کرنا ان پر فرض تھا۔ پھر یہی شہادت تمام انبیاء کے بعد ان کی امتوں پر فرض ہوتی رہی اور اب خاتم النبیینﷺ کے بعد یہ فرض اب امت مسلمہ پر بحثیت مجموعی اسی طرح عائد ہوتا ہے جس طرح حضورﷺ پر آپ زندگی میں شخصی حیثیت سے عائد ہوا تھا۔ حق کی یہی وہ ذمہ داری ہے جس کے لیے جماعت اسلامی قائم ہوئی۔ انفرادی طور پر افراد اور مختصر سے دائرے کے اندر ادارے پہلے بھی نیکی اور اصلاح کا کام کررہے ہیں، لیکن جماعت کی دعوت یہ ہے یہ کام محدود سے دائرے میں نہیں بلکہ زندگی کے وسیع میدانوں میں اجتماعی طور پر پوری امت ادا کرے۔ اور اپنے قول و عمل سے شہادت حق کی ذمہ داری کو پورا کرے جو اس کو خاتم النبیینﷺ کی طرف سے سونپی گئی ہے۔ یہ قولی و عملی شہادت اس وقت مکمل ہو سکتی ہے جب کہ ایک اسٹیٹ انہی اصولوں پر قائم ہوجائے اور وہ پورے دین کو عمل میں لاکر اپنے عدل اور انصاف سے اپنے اصلاحی پروگرام سے، اپنے حسن انتظام سے، اپنے امن سے، اپنے باشندوں کے فلاح و بہبود سے، اپنے حکمرانوں کی نیک سیرت سے، اپنی صالح داخلی سیاست سے، اپنی راست بازانہ خارجہ پالیسی، اپنی شریفانہ جنگ سے اور اپنی وفا دارانہ صلح سے ساری دنیا کے سامنے اس بات کی شہادت دے کہ جس دین نے اس اسٹیٹ کو یہ سب کچھ دیا ہے وہ درحقیقت انسانی فلاح کا ضامن ہے اور اسی کی پیروی میں نوع انسانی کی بھلائی ہے۔
+
+
+
+یہ ہے وہ حکومت الہٰیہ جسے جماعت اسلامی نے اپنا نصب العین بنایا اور شہادت حق کا وہ فریضہ جس کی ادائیگی کی طرف مسلمانوں کو دعوت دے رہی ہے ۔ یہی دعوت انبیاء کرام لے کر آئے تھے، اسی کی شہادت نبیﷺ نے حجة الوداع کے موقع پر مجتمع امتیوں سے لی تھی اور پوچھا تھا کہ کیا میں نے ”حق کا پیغام آپ لوگوں تک پہنچا دیا ہے“ ۔ اور جب انہوں نے جواب دیا کہ ”پہنچا دیا ہے۔ تو آپ نے فرمایا "اے اللہ گواہ رہنا"۔
+                </p>
+              
+            </div>
+
+            <div class="dawat-point">
+                <h4>2.           جماعت اسلامی کی دعوت کے بنیادی نکات
+</h4>
+                <p>
+                   ۔ اس مقصد اور نصب العین تک پہنچنے کے لیے جماعت اسلامی مسلمانوں کو جو دعوت دیتی ہے وہ تین امور پر مبنی ہے۔ اول یہ کہ بندگان خدا بالخصوص مسلمان اللہ کی بندگی اختیار کریں۔
+               <br>
+                   <br>
+               دوسرا یہ کہ اسلام قبول کرنے اور اس کو ماننے کا دعویٰ کرنے والے اپنی زندگیوں کو تناقض، تضادات اور منافقت سے پاک کریں اور مخلص مسلمان بن کر اسلام کے رنگ میں یک رنگ ہوجائیں۔
+            <br>
+                <br>
+            تیسرا یہ کہ زندگی کے باطل نظام کو جو باطل پرستوں اور فساق و فجار کی قیادت میں چل رہا ہے اورمعاملات کی زمامِ کار جو خدا کے باغیوں کے ہاتھ میں آگئی ہے اسے بدلا جائے اور رہنمائی اور امامت، نظری اور علمی دونوں حیثیتوں سے مؤمنین و صالحین کے ہاتھ میں منتقل ہوجائے۔ یہ تیسرا اور آخری کام اسی وقت انجام دیا جاسکتا ہے جب اہل اسلام کا ایک ایسا گروہ منظم کیا جائے جو نہ صرف اپنے اپنے ایمان میں پختہ اور نہ صرف اپنے اسلام میں مخلص اور یک رنگ اور نہ صرف اپنے اخلاق میں صالح و پاکیزہ ہوبلکہ اس کے ساتھ ان تمام اوصاف اور قابلیتوں سے بھی آراستہ ہو جو دنیا کی کارگاہِ حیات کو بہترین طریقے پر چلانے کے لیے ضروری ہیں، صرف آراستہ ہی نہ ہو بلکہ موجودہ کارفرماؤں اور کارکنوں سے ان اوصاف اور قابلیتوں میں اپنے آپ کو فائق ثابت کر دے۔
+
+  
+            </p>
+
+               
+            </div>
+            
+            <div class="dawat-point">
+                <h4>3.        جماعت اسلامی مستقل طریق کار</h4>
+                <p>
+               
+               وہ کسی امر کا فیصلہ کرنے یا کوئی قدم اٹھانے سے پہلے یہ دیکھے گی کہ خدا اور رسولﷺ کی ہدائت کیا ہے۔ دوسری ساری باتوں کو ثانوی حیثیت سے صرف اس حد تک پیش نظر رکھے گی جہاں تک اسلام میں اس کی گنجائش موجود ہو۔
+                  <br>
+                      <br>
+                      اپنے مقصد اور نصب العین کے حصول کے لیے جماعت کبھی ایسے ذرائع اور طریقوں کواستعمال نہیں کرے گی جو صداقت اور دیانت کے خلاف ہوں، یا جن سے فساد فی الارض رونما ہونے کا اندیشہ ہو۔ 
+  <br>
+                      <br>
+                      جماعت اپنے پیش نظر اصلاح اور انقلاب کے لیے جمہوری اور آئینی طریقوں سے کام کرے گی۔ یعنی یہ کہ تبلیغ و تلقین اور اشاعت افکار کے ذریعے سے ذہنوں اور سیرتوں کی اصلاح کی جائے اور رائے عامہ کو ان تغیرات کے لیے ہموارکیاجائے جو جماعت کے پیش نظر ہیں۔ 
+
+ <br>
+                      <br>
+                      جماعت اپنے نصب العین کے حصول کے لیے جدوجہد خفیہ تحریکوں کی طرز پر نہیں کرے گی، بلکہ کھلم کھلا اور اعلانیہ کرے گی۔
+
+            </p>
+            </div>
+
+        </div>
+        
+    </div>
+     <footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="copyright">
+                <p>&copy; 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('intro-select').onchange = function() {
+            var selectedUrl = this.value; 
+            if (selectedUrl) {
+                window.location.href = selectedUrl;
+            }
+        };
+    </script>
+
+</body>
+</html>
