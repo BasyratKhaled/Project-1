@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شعبہ جات جماعت اسلامی | تنظیمی ڈھانچہ</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles (Copied for standalone page functionality) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        body {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        h2 { 
+            color: #0A2B4C;
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        h3 { 
+            color: #0A2B4C; 
+            font-size: 1.7rem;
+            margin-top: 30px;
+            border-right: 4px solid #FFD700;
+            padding-right: 15px;
+        }
+
+        /* --- Introduction Dropdown (Copied from previous step) --- */
+        .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } 
+
+        /* --- New Styles for Departments Page Content --- */
+        .departments-content {
+            padding-bottom: 50px;
+        }
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .department-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #FFD700; /* Gold top border */
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .department-card i {
+            font-size: 3rem;
+            color: #0A2B4C; /* Deep Blue icon */
+            margin-bottom: 15px;
+        }
+        .department-card h4 {
+            color: #0A2B4C;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .department-card p {
+            font-size: 0.95rem;
+            color: #555;
+            min-height: 40px; /* Ensures uniform card height visually */
+        }
+        .department-card a {
+            display: inline-block;
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        .department-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Specific styling for associated institutions */
+        .institution-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .institution-list li {
+            background-color: white;
+            border-right: 4px solid #0A2B4C;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .institution-list li i {
+            color: #FFD700;
+            margin-left: 10px;
+        }
+         .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: auto;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+
+    <div class="container">
+        <h2>شعبہ جات اور ذیلی تنظیمیں</h2>
+        
+        <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+                <option value="taruf.html">جماعت (ہمارا تعارف)</option>
+                <option value="dawat.html">دعوت</option>
+                <option value="dastoor.html">دستور</option>
+                <option value="mansur.html">منشور</option>
+                <option value="shauba.html" selected>شعبہ جات</option>
+            </select>
+        </div>
+        
+        <div class="departments-content">
+            
+            <p>
+                جماعت اسلامی ایک ہمہ گیر تحریک ہے جو زندگی کے ہر شعبے میں فعال ہے۔ مرکزی سطح پر مختلف شعبے اور ذیلی تنظیمیں کام کر رہی ہیں تاکہ اقامتِ دین کی جدوجہد کو ملک کے ہر کونے اور زندگی کے ہر پہلو تک پہنچایا جا سکے۔
+            </p>
+
+            <h3>مرکزی شعبہ جات</h3>
+            <div class="department-grid">
+                
+                <div class="department-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h4> شعبہ تنظیم </h4>      
+                    <p> ناظم: رشید احمد</p>  
+                    <a href="/jamateislami/tafseel1.html">تفصیلات</a>
+                </div>
+                
+                <div class="department-card">
+                    <i class="fas fa-university"></i>
+                 <h4> شعبہ امور خارجہ</h4>
+                    <p>    ناظم: آصف لقمان قاضی   </p>
+                    <a href="/jamateislami/tafseel2.html">تفصیلات</a>
+                </div>
+                
+                <div class="department-card">
+                    <i class="fas fa-hands-helping"></i>
+                  <h4> شعبہ نشرواشاعت</h4>
+                 <p> سیکرٹری نشرواشاعت: شکیل احمد ترابی </p>
+                    <a href="#">تفصیلات</a>
+                </div>
+                
+                <div class="department-card">
+                    <i class="fas fa-users"></i>
+                  <h4> شعبہ مالیات </h4>
+         <p> ناظم : نذیر احمد جنجوعہ </p>
+                    <a href="/jamateislami/tafseel4.html">تفصیلات</a>
+                </div>
+
+                
+            </div>
+
+            <h3>ذیلی اور منسلک ادارے</h3>
+            <ul class="institution-list">
+                <li><i class="fas fa-hands-holding"></i> الخدمت فاؤنڈیشن (ملکی سطح پر خدمت خلق کا سب سے بڑا ادارہ)</li>
+                <li><i class="fas fa-school"></i> اسلامی جمعیت طلبہ (طلبہ و نوجوانوں کی نظریاتی تربیت)</li>
+                <li><i class="fas fa-book-open"></i> ترجمان القرآن (مرکزی نظریاتی مجلہ)</li>
+                <li><i class="fas fa-user-graduate"></i> جے آئی یوتھ (پیشہ ور اور نوجوانوں کے لیے مختص شعبہ)</li>
+            </ul>
+
+        </div>
+        
+    </div>
+     <footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="copyright">
+                <p>&copy; 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('intro-select').onchange = function() {
+            var selectedUrl = this.value; 
+            if (selectedUrl) {
+                window.location.href = selectedUrl;
+            }
+        };
+    </script>
+
+</body>
+</html>
