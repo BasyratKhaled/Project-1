@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منشور جماعت اسلامی | خوشحال پاکستان کا وژن</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles (Copied for standalone page functionality) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        body {
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        h2 { 
+            color: #0A2B4C;
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        h3 { 
+            color: #0A2B4C; 
+            font-size: 1.7rem;
+            margin-top: 30px;
+            border-right: 4px solid #FFD700;
+            padding-right: 15px;
+        }
+
+        /* --- Introduction Dropdown (Copied from previous step) --- */
+        .intro-nav-dropdown {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        #intro-select {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border: 2px solid #0A2B4C;
+            border-radius: 5px;
+            background-color: white;
+            color: #0A2B4C;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            text-align: right;
+            direction: rtl;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FFD700" d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        #intro-select:focus { border-color: #FFD700; outline: none; }
+        .sr-only { display: none; } 
+
+        /* --- New Styles for Manshoor Page Content --- */
+        .manshoor-content {
+            padding-bottom: 50px;
+        }
+        .manshoor-section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-right: 6px solid #0A2B4C; /* Deep Blue primary indicator */
+        }
+        .manshoor-section h4 {
+            color: #FFD700; /* Gold heading */
+            background-color: #0A2B4C;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .manshoor-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .manshoor-section ul li {
+            margin-bottom: 12px;
+            padding-right: 25px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .manshoor-section ul li i {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            color: #FFD700; /* Gold checkmark */
+        }
+        .manshoor-download {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-download {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #0A2B4C;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            border: 2px solid #FFD700;
+        }
+        .btn-download:hover {
+            background-color: #e0b000;
+            border-color: #e0b000;
+        }
+
+
+        .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 0 20px 0;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+    <div class="container">
+        <h2>  منشور جماعت اسلامی</h2>
+        
+        <div class="intro-nav-dropdown">
+            <label for="intro-select" class="sr-only">تعارفی سیکشن منتخب کریں:</label>
+            <select id="intro-select" name="تعارفی سیکشن" onchange="window.location.href=this.value">
+                <option value="taruf.html">جماعت (ہمارا تعارف)</option>
+                <option value="dawat.html">دعوت</option>
+                <option value="dastoor.html">دستور</option>
+                <option value="mansur.html" selected>منشور</option>
+                <option value="shauba.html">شعبہ جات</option>
+            </select>
+        </div>
+        
+        <div class="manshoor-content">
+            
+            <p class="lead-text">
+                جماعت اسلامی کا منشور "خوشحال پاکستان" کی تعمیر کا ضامن ہے۔ یہ منشور قرآن و سنت کی روشنی میں، عدل، انصاف اور دیانت پر مبنی ایسا نظام قائم کرنے کا روڈ میپ ہے جو ملک سے کرپشن اور غربت کا خاتمہ کر سکے۔
+            </p>
+            
+            <div class="manshoor-section">
+                <h4><i class="fas fa-mosque"></i>      اسلامی منشور کے اعلی مقاصد    </h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>  قرآن و سنتﷺ کی بالا دستی  </li>
+                    <li><i class="fas fa-check-circle"></i>  آئین، جمہوریت اور قانون کی حکمرانی</li>
+                    <li><i class="fas fa-check-circle"></i> پاکستان کے عوام کی خوشحالی اور ترقی </li>
+   <li><i class="fas fa-check-circle"></i>     خوشحال صوبے اور خوشحال معاشرہ           </li>
+     <li><i class="fas fa-check-circle"></i>خواتین کو اسلامی حدود میں تعلیم و ترقی کے تمام مواقع    </li>
+                    <li><i class="fas fa-check-circle"></i> عالمی مالیاتی اداروں کے دباؤ سے آزاد غیر سودی معیشت </li>
+                      <li><i class="fas fa-check-circle"></i> انصاف، امن، روزگار، تعلیم، علاج،اور چھت سب کے لئے   </li>
+                    <li><i class="fas fa-check-circle"></i>  قومی سلامتی، مضبوط دفاع اور آزاد خارجہ پالیسی</li>
+                 
+   
+                </ul>
+            </div>
+
+            <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>         اسلامی پاکستان    </h4>
+                <ul>
+                         <li><i class="fas fa-check-circle"></i>   دستور پاکستان کے مطابق قرآن وسنت ﷺ کی بالادستی قائم کی جائے گی اور قرآن و سنت سے متصادم تمام قوانین منسوخ کیے جائیں گے۔ </li>
+                    <li><i class="fas fa-check-circle"></i> حضرت محمد ﷺ کی ختم نبوتؐ اور تمام پیغمبروںؑ کی ناموس کا ہر قیمت پرتحفظ کیا جائے گا۔ </li>
+                         <li><i class="fas fa-check-circle"></i>   وفاقی شرعی عدالت کے فیصلے حتمی ہوں گے اور اسے بدنیتی سےچیلنج نہ کیا جاسکے گا۔ </li>
+                   
+               
+                </ul>
+            </div>
+
+            <div class="manshoor-section">
+                <h4><i class="fas fa-graduation-cap"></i>جمہوری پاکستان        </h4>
+                <ul>
+ <li><i class="fas fa-check-circle"></i> اسلام، آئین،جمہوریت اور سِول حکومت کے تحفظ کے لئے پارلیمنٹ کو بالادست بنایا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> پارلیمنٹیرینز /قانون سازوں (Legislators)کی استعداد کار بڑھانے (Capacity Building) کے لیے ایک ’’تربیتی اکیڈمی‘‘ قائم کی جائے گی۔ </li>
+    <li><i class="fas fa-check-circle"></i>  تمام بین الاقوامی معاہدوں (بشمول تزویراتی ،تجارتی اور تعلیمی وغیرہ) کی حتمی منظوری پارلیمنٹ دے گی۔  </li>
+                    <li><i class="fas fa-check-circle"></i> الیکشن کمیشن آف پاکستان کو انتظامی ،مالی اورعدالتی خودمختاری دی جائے گی۔ </li>
+                       <li><i class="fas fa-check-circle"></i>  متناسب نمائندگی کا طریقِ انتخاب اپنانے کے لیے قومی سیاسی جماعتوں میں ہم آہنگی پیدا کرنے کی کوشش کی جائے گی۔</li>
+                          <li><i class="fas fa-check-circle"></i>  قومی اسمبلی ، سینٹ اور صوبائی اسمبلیوں کے اراکین کی اہلیت ،دیانت اور شہرت جانچنے کے لیے ایک آزاد ،غیر جانبدار اور خودمختار کمیشن تشکیل دیا جائے گاجو آئین کے آرٹیکل 62 اور 63 کےنفاذ کو یقینی بنائے گا۔</li>
+                             <li><i class="fas fa-check-circle"></i> قومی مالیاتی کمیشن وفاق اور صوبوں میں وسائل کی تقسیم کے فارمولے پر نظرثانی کرے گا۔ </li>
+        <li><i class="fas fa-check-circle"></i>  بلدیاتی انتخابات اور مقامی حکومتوں کے تحفظ کے لئے سیاسی جماعتوں کے اشتراک سے آئین میں ایک نیاباب اورشیڈول شامل کیا جائے گا۔</li>
+                             <li><i class="fas fa-check-circle"></i> بلدیاتی اداروں کو مالی اور انتظامی خود مختاری دینے کے لیے قومی و صوبائی مالیاتی کمیشن کے ذریعے مقامی حکومتوں کو مالیاتی اختیارات منتقل کئے جائیں گے۔ </li>
+                              <li><i class="fas fa-check-circle"></i> میڈیا کوناجائز حکومتی اور غیر حکومتی دباؤ سے آزاد رکھنے کے لیے مؤثر اقدامات کیے جائیں گے۔ </li>
+                             <li><i class="fas fa-check-circle"></i>  میڈیا کو اسلامی تہذیب وثقافت کا علمبرداربنانے کے لئےترغیب دی جائے گی۔</li>
+                                <li><i class="fas fa-check-circle"></i> اُردو کو سرکاری زبان اوربنیادی تعلیم کا ذریعہ بنایا جائےگا۔ </li>
+            
+                </ul>
+            </div>
+
+            <div class="manshoor-section">
+                <h4><i class="fas fa-users"></i>مضبوط معیشت اور گورننس </h4>
+                <ul> 
+     <li><i class="fas fa-check-circle"></i> سیاسی جماعتوں ، ماہرین معاشیات اور تمام سٹیک ہولڈرز کی مشاورت سے ’’میثاقِ معیشت ‘‘تیار کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> سودی معیشت اور سُودی بنکاری کا خاتمہ کیا جائے گا۔ </li>
+      <li><i class="fas fa-check-circle"></i>ناجائز منافع خور مافیا ز اور کارٹیلزکا خاتمہ کر کے اشیائے خور و نوش اور اشیائے ضروریہ کی قیمتوں میں استحکام لایا جائے گا۔    </li>
+                    <li><i class="fas fa-check-circle"></i>  بلاواسطہ (Direct) اور بالواسطہ (Indirect)ٹیکسوں کا منصفانہ فارمولہ بنایا جائے گا۔</li>
+                     <li><i class="fas fa-check-circle"></i> جنرل سیلز ٹیکس کو 5 فیصد سے کم کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> اندرون و بیرون ملک سے ’’ترسیلاتِ زر پر بنک فیس‘‘ کم کی جائے گی۔ </li>
+                     <li><i class="fas fa-check-circle"></i>  عالمی بنک ،عالمی مالیاتی فنڈ(آئی ایم ایف) اوراندرونی و بیرونی قرضوں سے نجات کے لئے جامع حکمت عملی تیار کی جائے گی۔  </li>
+                    <li><i class="fas fa-check-circle"></i> سٹیٹ بنک آف پاکستان ایکٹ پرنظرثانی کر کے ’’گورنربنک دولت پاکستان‘‘ کو پارلیمنٹ اور حکومت کے سامنے جوابدہ بنایاجائے گا۔ </li>
+                     <li><i class="fas fa-check-circle"></i>   زرعی ٹیکس بتدریج نافذ کیا جائے گا جبکہ ای آبیانہ اورای مالیہ سکیموں کا اِجرا کیا جائے گا۔ </li>
+       <li><i class="fas fa-check-circle"></i>غیر ترقیاتی اخراجات میں 30فیصد کمی کی جائے گی۔سرکاری اداروں میں اسراف کا خاتمہ اور سادگی وقناعت کی روش اختیارکی جائے گی۔  </li>  
+             <li><i class="fas fa-check-circle"></i>   قومی اداروں کی فروخت یانج کاری کے بجائے اُنہیں منافع بخش ادارےبنانے کے لیے اہل انتظامیہ کا تقرر کیا جائے گا۔ </li>
+       <li><i class="fas fa-check-circle"></i>  حاضر اور سابق صدور، وزرائے اعظم ، وزرائے اعلیٰ ،وفاقی و صوبائی وزراء،سپیکر قومی و صوبائی اسمبلی ، چیئرمین سینیٹ ، وفاقی و صوبائی وزرائے کرام ،چیف جسٹس ، سپریم کورٹ اور ہائی کورٹ کے حاضر سروس ججوں، اعلیٰ سول اور فوجی افسران کو قیمتی لگژری سرکاری گاڑیوں اور مفت پٹرول کی سہولت ختم کی جائے گی۔</li> 
+             <li><i class="fas fa-check-circle"></i>  سرمایہ داروں، جاگیرداروں اور ما لدار ترین اشرافیہ کو حاصل ٹیکس چھوٹ ختم کر کے 200 ارب روپے سالانہ بچائے جائیں گے۔  </li>
+       <li><i class="fas fa-check-circle"></i> آئین کے مطابق بلاامتیاز اور بے لاگ احتساب کے لیےمؤثر احتسابی نظام قائم کیا جائے گا۔ </li> 
+             <li><i class="fas fa-check-circle"></i>  ’’احتسابی نظام ‘‘ تشکیل دیاجائے گا تاکہ رشوت ، کمیشن اور کک بیکس سمیت ہر قسم کی بدعنوانی کا مکمل خاتمہ کیا جاسکے۔
+قومی احتساب بیورو (نیب)اور ایف آئی اے کا سربراہ اُسے مقرر کیا جائے گا جس کی قابلیت ،اہلیت اور امانت و دیانت مسلمہ ہو۔  </li>
+       <li><i class="fas fa-check-circle"></i> نیب ،ایف آئی اےسمیت تمام تفتیشی اداروں کی تنظیم نو کی جائے گی اور اس میں سیاسی مداخلت اور انتقامی کارروائیوں پر پابندی عائد کی جائے گی۔ </li>              
+                    
+     <li><i class="fas fa-check-circle"></i> بدعنوان عناصر کو شریعت کے مطابق موت اورعمر قید سمیت سخت سزا ئیں دی جائیں گی۔ پلی بارگین کو ختم کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> بجلی اورگیس کے رائج الوقت ظالمانہ سلیب ریٹ ختم کریں گے۔
+واپڈااور کراچی الیکٹرک کی تنظیم نو کی جائے گی اور بجلی کی قیمت میں ناروااضافہ سے روکا جائے گا۔ </li>
+                      <li><i class="fas fa-check-circle"></i> ہائیڈروپاور ،شمسی توانائی کے پینل اور ونڈ ٹربائن کی تیاری میں خود کفالت حاصل کے لیےصنعت کاروں کو سرمایہ کاری کی ترغیب دی جائے گی۔   </li>
+                    <li><i class="fas fa-check-circle"></i>  سیاحتی مقامات کو آلودگی سے پاک رکھنے، سیکورٹی اورمناسب قیمتوں کے تعین و کنٹرول کا نظام قائم کیا جائے گا۔</li>
+                      <li><i class="fas fa-check-circle"></i>   سیاحت کے فروغ کے لیے شاہراہیں اور رابطہ سڑکیں تعمیر کی جائیں گی۔ </li>
+ <li><i class="fas fa-check-circle"></i> نئے جنگلات لگانے کے لیے بڑے پیمانے پر شجرکاری مہمات چلائی جائیں گی اور جنگلی حیات کے تحفظ کے لیے قوانین پر عمل درآمد کیا جائے گا۔ </li>
+                 <li><i class="fas fa-check-circle"></i>  سرکاری اداروں کے مکمل ریکارڈ کو دورِحاضر کے تقاضوں کے مطابق ڈیجٹلائز کیا جائے گا۔
+ڈیٹا سائنس اورمصنوعی ذہانت (Artificial Intelligence)کی تعلیم کی حوصلہ افزائی کی جائے گی۔</li>
+                        
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>         خوشحال صوبے   </h4>
+                <ul>
+     <li><i class="fas fa-check-circle"></i>  صوبوں کے قدرتی وسائل پر پہلا حق صوبوں کا ہوگا۔  </li>
+                    <li><i class="fas fa-check-circle"></i> پورے ملک میں غیر ضروری چیک پوسٹوں کا خاتمہ کیا جائے گا۔ </li>
+                         <li><i class="fas fa-check-circle"></i>  ’’حقوق دو گوادر کو‘‘تحریک اور حکومت بلوچستان کے درمیان تحریری معاہدےپر عمل درآمد کروایا جائے گا۔  </li>
+                    <li><i class="fas fa-check-circle"></i>ناراض بلوچ قبائل کے ساتھ مذاکرات کئے جائیں گے اور انہیں قومی دھارے میں شامل کر کےاحترام دیا جائے گا۔  </li>
+         <li><i class="fas fa-check-circle"></i>قومی مالیاتی کمیشن ایوارڈ میں دہشت گردی سے متاثرہ صوبہ خیبرپختونخوا کا حصہ بڑھایا جائے گا۔    </li>
+                    <li><i class="fas fa-check-circle"></i>  سابقہ فاٹاکے ضم شدہ اضلاع کو’’خصوصی ترقیاتی پیکج‘‘ کے ذریعے ترقی یافتہ اضلاع کے برابر لایا جائے گا۔</li>
+             <li><i class="fas fa-check-circle"></i> صوبائی سطح پر ’’رئیل اسٹیٹ اتھارٹی‘‘قائم کی جائے گی اور ہاؤسنگ سوسائٹیوں اور اسکیموں کے متاثرین کے حقوق کا تحفظ کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> تمام شہروں سےکچرا کنڈی کو ٹھکانے لگانےکے لیے ’’ویسٹ منیجمنٹ اتھارٹی‘‘ قائم کی جائے گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> خوشحال کراچی کے لیے جامع ترقیاتی منصوبہ پیش کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i>جماعت اسلامی کی’’حقوق دو کراچی کو ‘‘تحریک اور حکومت سندھ کے مابین معاہدے پر عمل درآمد کروایا جائے گا۔  </li>
+                <li><i class="fas fa-check-circle"></i>  صوبہ بہاول پور بحال کیا جائے گا۔  </li>
+                    <li><i class="fas fa-check-circle"></i>  جنوبی پنجاب کو انتظامی بنیاد پر الگ صوبہ بنایا جائے گا اور ترقی یافتہ علاقوں کے برابر لایا جائے گا۔</li>
+               
+               
+                </ul>
+            </div>
+  <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>   خوشحال اور محفوظ عورت         </h4>
+                <ul>
+                 <li><i class="fas fa-check-circle"></i>  خواتین کو میٹرک تک لازمی مفت تعلیم دی جائے گی اور اعلیٰ تعلیم کے حصول کے لیے خواتین کومساویانہ مواقع فراہم کیے جائیں گے۔  </li>
+                    <li><i class="fas fa-check-circle"></i> اسلامی شریعت کے مطابق خواتین کو والد اور شوہر کی جائیداد سےوراثت اور ملکیت کے حقوق دلوانے کے لیے فوری اور عملی اقدامات کئے جائیں گے۔ </li>
+                      <li><i class="fas fa-check-circle"></i> غیر اسلامی معاشرتی رسموں ناجائزجہیز ، قرآن سے شادی، ونی ، وٹہ سٹہ ، سورہ،کاروکاری اور غیرت کے نام پر قتل کا سدِ باب کیا جائے گا۔   </li>
+                    <li><i class="fas fa-check-circle"></i> پبلک سروس کے تمام اداروں میں خواتین کے لئے علیحدہ ڈیسک قائم کئے جائیں گے۔ </li>
+                      <li><i class="fas fa-check-circle"></i>   ماؤں اور بہنوں کو وراثت میں حصہ نہ دینے والے اُمیدواروں کے انتخابات میں حصہ لینے اور بیرون ملک سفرپر پابندی عائد کی جائے گی۔ </li>
+        
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>   خوشحال نوجوان    </h4>
+                <ul>
+                        <li><i class="fas fa-check-circle"></i>  طلبہ یونین پر پابندی ختم کرکے تمام تعلیمی اداروں میں انتخابات کروائے جائیں گے۔</li>
+                      <li><i class="fas fa-check-circle"></i>   گریجویٹس کو آسان شرائط کے ساتھ لیزپر بنجر رقبہ دیا جائے گا۔ </li>
+                    <li><i class="fas fa-check-circle"></i> یوتھ بنک قائم کر کے نوجوانوں کو کاروبار کے لیے بلاسود قرضے اور پیشہ وارانہ تربیت دی جائے گی۔ </li>
+                     <li><i class="fas fa-check-circle"></i>پاکستان ڈیجیٹل پروگرام کے تحت نوجوانوں کو خصوصی تربیت دینے کے ساتھ ساتھ سستے انٹرنیٹ کنکشن ،لیب ٹاپ اورکمپیوٹرز دیئے جائیں گے۔  </li>
+                <li><i class="fas fa-check-circle"></i>وفاقی و صوبائی بجٹ میں ہر شہر اور ہردیہات میں کھیل کے میدانوں میں اضافہ اور سہولیات کے لیے فنڈز مختص کئے جائیں گے۔  </li>
+                <li><i class="fas fa-check-circle"></i>  اسلامی تہذیب وثقافت کے دائرے میں نوجوان خواتین کے لیے کھیلوں کے الگ میدان اور صحت مند تفریحی سرگرمیوں کے لئے خصوصی فنڈز مختص کئے جائیں گے۔</li>
+               
+               
+               
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>   خوشحال کسان، زرعی و دیہی ترقی      </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i> زرعی قرضوں پر سُود ختم کیا جائے گیا۔ </li>
+                <li><i class="fas fa-check-circle"></i> کسانوں کو بجلی ،پانی ،ڈیزل ،کھاد ،بیج اور زرعی ادویات سستے داموں فراہم کی جائیں گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> بے زمین کسانوں اور ہاریوں کو غیرآباد سرکاری زمینیں پانی کی سہولت اور آباد کاری کی شرط کے ساتھ فراہم کی جائیں گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> کھاد کی بوریوں پر قیمتیں چھاپی جائیں گی تاکہ کسانوں سےزیادہ قیمت وصول نہ ہو سکے۔ </li> 
+                <li><i class="fas fa-check-circle"></i>  باغات اورزرعی زمینوں پر نئی رہائشی سوسائٹیوں اور کارخانوں کی تعمیر پر پابندی لگائی جائے گی۔</li>
+                <li><i class="fas fa-check-circle"></i> آبادی کے شہروں کی طرف بہاؤ کو روکنے کے لئے ’’جامع دیہی ترقی کامنصوبہ‘‘ تیار کیا جائے گا جس میں تمام شہری سہولیات مہیا کی جائیں گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> دیہی علاقوں میں ایگروبیسڈ انڈسٹری قائم کی جائے گی۔
+ </li>
+ 
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>  خوشحال مزدور   </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i> رسول اللہ ﷺ کے فرمودات کے مطابق ’’قومی لیبر پالیسی‘‘تشکیل دی جائے گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> سرکاری اور نجی اداروں میں یومیہ اُجرت کا خاتمہ کر کے تمام اسامیوں پر مستقل ملازمت دی جائے گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> محنت کش کی کم از کم اُجرت اور تنخواہ کا تعین مہنگائی کے تناسب سے کیا جائے گا ۔ </li>
+                <li><i class="fas fa-check-circle"></i>  کارخانوں کے منافع میں مزدوروں کو حصہ دار بنایا جائے گا۔</li> 
+            
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>  خوشحال غیر مسلم پاکستانی (اقلیتی) برادری    </h4>
+                <ul>خ 
+                    
+                <li><i class="fas fa-check-circle"></i> غیرمسلم آبادی کے لیے اقلیت کی بجائے ’’پاکستانی برادری‘‘ کی اصطلاح استعمال کی جائے گی۔ </li>
+                <li><i class="fas fa-check-circle"></i> غیر مسلموں کو بلاامتیازتعلیم ، روزگار اور دیگرشہری حقوق برابری کی بنیاد پر فراہم کیے جائیں گے۔ </li>
+                <li><i class="fas fa-check-circle"></i>تمام مذاہب کے پیروکاروں کی جان، مال، عزت، آبرو اور عبادت گاہوں کا تحفظ کیا جائے گا۔  </li>
+      
+                </ul>
+            </div>
+              <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>     خوشحال بزرگ شہری اور ملازمین  </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i> سرکاری اور غیر سرکاری ملازمین کی تنخواہوں اورپنشن میں ہرسال مہنگائی کی شرح سے اضافہ کیا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i>  ریٹائرڈ سرکاری ملازمین اور اُن کی بیوہ گان اور بچیوں کو پنشن کی ادائیگی کاخود کار نظام بنایا جائے گا۔</li>
+                <li><i class="fas fa-check-circle"></i>معذوروں کو خصوصی تعلیم وتربیت اور ملازمتوں میں کوٹہ یقینی بنایا جائے گا۔  </li>
+          
+                </ul>
+            </div>
+             <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>  خوشحال سمندر پارپاکستانی     </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i> پاسپورٹ ، شناختی کارڈ ز اور دیگر تصدیقی دستاویزات کی تجدید اور پاکستان آمدپرامیگریشن اورکسٹم وغیرہ میں آسانیاں پیدا کی جائیں گی۔ </li>
+ 
+                </ul>
+            </div>
+             <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>     مضبوط دفاع  </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i>  قومی سلامتی پالیسی سیاسی و دینی جماعتوں ، خارجہ و دفاعی اُمور کے ماہرین اور نمائندہ شخصیات کی مشاورت سے تیار کی جائے گی جس کی منظوری پارلیمنٹ دےگی۔</li>
+                <li><i class="fas fa-check-circle"></i> پاکستان کے ایٹمی پروگرام کو ترقی دی جائے گی اور بیرونی و اندرونی دباؤ پر ایٹمی پروگرام بند کرنے یا ایٹمی اثاثوں سے دستبرداری کو کسی صورت قبول نہیں کیا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i> پاکستان کی بری ، فضائی اور بحری افواج کو جدید ترین اسلحہ اور جدید ترین ٹیکنالوجی سے لیس کیا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i> سروسز چیفس کی تقرر ی سنیارٹی اور میرٹ کے اُصول پر ہو گی جس کی منظوری پارلیمنٹ دے گی۔ </li> 
+                <li><i class="fas fa-check-circle"></i>  کسی ملک یا بین الاقوامی ایجنسی کو پاکستان کی بری، بحری اور فضائی حدود اور خفیہ معلومات تک رسائی نہیں دی جائے گی۔</li>
+                </ul>
+            </div>
+             <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>  آزاد خارجہ تعلقات     </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i> اسلام کی بالادستی ،پاکستان کی سلامتی و یکجہتی ، ریاست جموں وکشمیر کی آزادیٔ اورکشمیریوں کاحق خودارادیت خارجہ پالیسی کے اہم ستون ہوں گے۔ </li>
+                <li><i class="fas fa-check-circle"></i> اسلامی دُنیا اوراسلامی تعاون تنظیم (OIC) سے تعلقات کو مضبوط بنا کر مشترکہ معاشی، تعلیمی اور دفاعی حکمتِ عملی پر زور دیا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i>  سعودی عرب ،ترکی ،ایران اور افغانستان سمیت تمام مسلم ممالک کو خارجہ تعلقات میں پہلی ترجیح حاصل ہوگی۔</li>
+                <li><i class="fas fa-check-circle"></i> چین کے ساتھ برادرانہ،دوستانہ، تجارتی اور تزویراتی تعلقات کو مزید مستحکم کر کے پاک چین اقتصادی راہداری (CPEC)کے تمام منصوبے جلد مکمل کیے جائیں گے۔ </li> 
+                <li><i class="fas fa-check-circle"></i> بھارت کے ساتھ دو طرفہ ،دوستانہ،سفارتی اورتجارتی تعلقات کوکشمیریوں کے حقِ ارادیت کے حصول ،مسئلہ جموں و کشمیر کے حتمی حل اور مقبوضہ ریاست کی سابقہ و خصوصی حیثیت کی بحالی تک زیرغور رکھا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i> ریاست جموں وکشمیر بھارت کے زیر قبضہ جموں و کشمیر ، لداخ ، اور پاکستان کے زیر انتظام آزاد کشمیراور گلگت بلتستان پر مشتمل متنازعہ علاقہ ہے۔ اس کی تقسیم کو کسی آئینی ترمیم یا خاموش مفاہمت کے ذریعے تسلیم نہیں کیا جائے گا۔ </li>
+                <li><i class="fas fa-check-circle"></i>  فلسطین کی مقدس سرزمین پر ناجائز اسرائیلی ریاست کو تسلیم نہیں کیا جائے گا اور نہ ہی کسی قسم کے سفارتی تعلقات قائم کئےجائیں گے۔</li>
+                <li><i class="fas fa-check-circle"></i> تمام بین الاقوامی معاہدوں کی اسلامی اُصولوں کے مطابق پاسداری کی جائے گی۔ </li>
+                </ul>
+            </div>
+  <div class="manshoor-section">
+                <h4><i class="fas fa-money-bill-wave"></i>     خوشحال پاکستان: ترقی یافتہ پاکستان  </h4>
+                <ul>
+                    
+                <li><i class="fas fa-check-circle"></i>  انصاف سب کے لیے</li>
+                <li><i class="fas fa-check-circle"></i>  اَمن سب کے لیے</li>
+                <li><i class="fas fa-check-circle"></i> تعلیم سب کے لیے </li>
+                <li><i class="fas fa-check-circle"></i> خوراک سب کے لیے </li> 
+                <li><i class="fas fa-check-circle"></i> صحت سب کے لیے
+ </li>
+                <li><i class="fas fa-check-circle"></i> چھت سب کے لیے </li>
+                <li><i class="fas fa-check-circle"></i> روزگار سب کے لیے </li>
+             
+                </ul>
+            </div>
+              
+            <div class="manshoor-download">
+                <a href="/jamateislami/mansur.html" class="btn-download"><i class="fas fa-download"></i> مکمل منشور ڈاؤن لوڈ کریں</a>
+            </div>
+
+        </div>
+        
+    </div>
+ <footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="copyright">
+                <p>&copy; 2025 تحریک اسلامی۔ تمام حقوق محفوظ ہیں۔</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('intro-select').onchange = function() {
+            var selectedUrl = this.value; 
+            if (selectedUrl) {
+                window.location.href = selectedUrl;
+            }
+        };
+    </script>
+
+</body>
+</html>
