@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ووٹر بنیں - اپنا ووٹ رجسٹر کریں</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ji-green: #008435;
+            --ji-dark: #005c25;
+            --white: #ffffff;
+            --bg-light: #f0f4f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Arabic', 'Noto Nastaliq Urdu', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--ji-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('http://upload.wikimedia.org/wikipedia/commons/3/33/Jamaat-e-Islami_Pakistan_flag.PNG') center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+               margin: 0 auto;
+          
+            padding: 0 20px;
+        }
+
+        /* Form Card */
+        .voter-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--ji-dark);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--ji-green);
+            outline: none;
+        }
+
+        .submit-btn {
+            background: var(--ji-green);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover { background: var(--ji-dark); }
+
+        /* Status Section */
+        .status-box {
+            background: #fff3cd;
+            border-right: 5px solid #ffc107;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 100px;
+            background: #222;
+            color: white;
+            margin-top: 30px;
+          
+        }
+                 .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background:  #0A2B4C;
+    color: white;
+    backdrop-filter: blur(10px); /* Beautiful blur effect */
+    border-bottom: 2px solid #008000; /* Jamaat-e-Islami Green */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+
+.main-header a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-header a:hover {
+    color: #008000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    font-size: 2rem;
+     color: #FFD700; /* Gold */
+    margin-left: 10px;
+}
+.logo img {
+  height: 80px;    /* Control the height of your logo */
+  width: 20;     /* Maintains aspect ratio */
+  display: block;
+ 
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #FFD700; /* Gold on hover */
+    color: #0A2B4C; /* Deep Blue text */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px  20px ;
+    font-size: 0.95rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+footer h4 {
+    color: #FFD700; /* Gold */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+footer ul li a:hover {
+    color: #FFD700;
+}
+footer i {
+    margin-left: 8px;
+    color: #FFD700;
+}
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #FFD700;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+    </style>
+</head>
+<body>
+ <header class="main-header">
+    
+     <div class="logo">
+            
+        <img src="/jamateislami/images/jamaat_islami_harm_logo1-removebg-preview.png" >
+  
+           
+                 <span> جماعتِ اسلامی پاکستان</span> 
+               
+            </div>
+    <nav>
+                <ul id="nav-menu">
+                    <li><a href="/jamateislami/index.html">صفحہ اول</a></li>
+                    <li><a href="/jamateislami/dawat.html">تعارف  </a></li>
+                    <li><a href="/jamateislami/qayadat.html" >  قیادت</a></li>
+                    <li><a href="/jamateislami/books.html"> کتب </a> </li>
+                    <li><a href="index.html#contact-us">رابطہ</a></li>
+                      <li><a href="/jamateislami/iqtasab.html"> دیگر  </a></li>
+                       <li><a href="/jamateislami/voter.html"  >   ووٹر بنیں      </a></li> 
+                </ul>
+               
+            </nav>
+</header>
+
+<header> 
+<div class="logo">         </div> 
+</header>
+     
+
+    <section class="hero">
+        <h1>اپنا ووٹ رجسٹر کریں</h1>
+        <p>آپ کا ایک ووٹ پاکستان کی تقدیر بدل سکتا ہے</p>
+    </section>
+
+    <div class="container">
+        <div class="voter-card">
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--ji-green);">ووٹر انفارمیشن فارم</h2>
+            
+            <form id="voteForm">
+                <div class="form-group">
+                    <label>مکمل نام (شناختی کارڈ کے مطابق)</label>
+                    <input type="text" id="fullName" placeholder="اپنا نام لکھیں" required>
+                </div>
+
+                <div class="form-group">
+                    <label>قومی شناختی کارڈ نمبر (CNIC)</label>
+                    <input type="text" id="cnic" placeholder="xxxxx-xxxxxxx-x" required>
+                </div>
+
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label>موبائل نمبر</label>
+                        <input type="tel" id="phone" placeholder="03xx-xxxxxxx" required>
+                    </div>
+                     <div class="form-group">
+                    <label> بلاک کوڈ </label>  
+                    <input type="text" id="address" placeholder="">
+                </div>
+                    <div>
+                        <label> صوبہ </label>    
+                        <select id="city">
+                            <option value="">منتخب کریں</option>
+                            <option value="lahore"> پنجاب </option> 
+                            <option value="karachi">  سندھ</option>
+                            <option value="islamabad">خیبر پختونخوا </option>
+                            <option value="peshawar">بلوچستان  </option>
+                             <option value="peshawar"> گلگت بلتستان </option>
+                              <option value="peshawar"> اسلام آباد وفاقی دارالحکومت </option>
+                                 <option value="peshawar">آزاد جموں و کشمیر  </option>
+                        </select>
+
+                    </div>
+                </div>
+              
+                  <div class="form-group">
+                    <label> شہر  </label>  
+                    <input type="text" id="address" placeholder=" شہر کا نام ">
+                </div>
+                 
+
+
+                <div class="form-group">
+                    <label>پتہ (یونین کونسل نمبر معلوم ہو تو لکھیں)</label>
+                    <input type="text" id="address" placeholder="گھر کا پتہ">
+                </div>
+
+                <button type="submit" class="submit-btn">ڈیٹا جمع کرائیں</button>
+            </form>
+
+            <div class="status-box">
+                <strong><i class="fa fa-info-circle"></i> نوٹ:</strong> 
+          بلاک کوڈ حاصل کرنے کیلئےاپنا شناختی کارڈ 8300 پر بھجیں۔
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact-us">
+         
+        <div class="container">
+              
+            <div class="footer-grid">
+                <div>
+                    <h4>رابطہ کی تفصیلات</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> مرکزی دفتر، لاہور 54600</p>
+                    <p><i class="fas fa-phone"></i>  35432194 42 92+ </p>
+                    <p><i class="fas fa-envelope"></i> tanzeem.jamaat@gmail.com </p>
+                </div>
+                <div>
+                    <h4>فوری لنکس</h4>
+                    <ul>
+                        <li><a href="/jamateislami/dastoor.html">دستور</a></li>
+                        <li><a href="/jamateislami/shauba.html">شعبہ جات</a></li>
+                        <li><a href="/jamateislami/books.html">ڈیجیٹل لائبریری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>سوشل میڈیا</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/JIPOfficial1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/jipofficial?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+    </footer>
+
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            alert('شکریہ ' + name + ' صاحب! آپ کی معلومات موصول ہو گئی ہیں۔ ہماری ٹیم آپ سے رابطہ کرے گی۔');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
